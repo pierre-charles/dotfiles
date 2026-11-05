@@ -1,5 +1,5 @@
 # Shared output for the setup scripts: [ ] running, [✓] done, [–] already done, [✗] failed.
-# Sourced by setup.sh and setup-ubuntu.sh. Loaded once, so LOG and FAILURES are shared when
+# Sourced by the setup scripts. Loaded once, so LOG and FAILURES are shared when
 # setup-ubuntu.sh sources setup.sh, and its summary lists failures from both.
 [ -n "$SETUP_OUTPUT_LOADED" ] && return
 SETUP_OUTPUT_LOADED=1
@@ -8,6 +8,7 @@ tmp="${TMPDIR:-/tmp}"
 LOG="$(mktemp "${tmp%/}/setup.XXXXXX")"
 FAILURES=()
 
+tilde='~'  # in a variable: newer bash turns a bare ~ in a ${var/#$HOME/...} replacement back into the full path
 green=$'\e[32m' red=$'\e[31m' dim=$'\e[2m' bold=$'\e[1m' reset=$'\e[0m'
 section()    { printf "\n${bold}==> %s${reset}\n" "$1"; }
 ok()         { printf "  ${green}[✓]${reset} %s\n" "$1"; }
@@ -81,6 +82,33 @@ need_sudo() {
     SUDO_KEEPALIVE=$!
     trap 'kill "$SUDO_KEEPALIVE" 2>/dev/null' EXIT
     ok "sudo ready"
+}
+
+# Links src to dst. Skips it if it's already linked, keeps a real file in the way as <name>.backup-<date>
+symlink() {
+    local src="$1" dst="$2" out
+    local name="${dst/#$HOME/$tilde}"
+
+    if [ ! -e "$src" ]; then
+        skip "$name (${src/#$HOME/$tilde} isn't in the repo)"
+    elif [ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ]; then
+        skip "$name (already linked)"
+    elif [ -d "$dst" ] && [ ! -L "$dst" ]; then
+        # ln would put the link inside the folder instead of replacing it
+        fail "$name" "already exists as a folder. Move it out of the way and re-run"
+    elif [ -f "$dst" ] && [ ! -L "$dst" ]; then
+        # A real file is in the way (e.g. the .zshrc Oh My Zsh creates): keep it, don't overwrite it
+        local backup; backup="$dst.backup-$(date +%Y%m%d-%H%M%S)"
+        if out="$(mv "$dst" "$backup" 2>&1 && ln -s "$src" "$dst" 2>&1)"; then
+            ok "Linked $name (the file that was there is now ${backup/#$HOME/$tilde})"
+        else
+            fail "Linking $name" "$out"
+        fi
+    elif out="$(mkdir -p "$(dirname "$dst")" 2>&1 && ln -sf "$src" "$dst" 2>&1)"; then
+        ok "Linked $name"
+    else
+        fail "Linking $name" "$out"
+    fi
 }
 
 # Prints every failure again in red, then the next step. Returns non-zero if anything failed

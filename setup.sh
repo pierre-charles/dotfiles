@@ -59,32 +59,6 @@ fi
 # --- Symlinks ---
 section "Config links"
 
-symlink() {
-    local src="$1" dst="$2" out
-    local name="${dst/#$HOME/~}"
-
-    if [ ! -e "$src" ]; then
-        skip "$name (${src/#$HOME/~} isn't in the repo)"
-    elif [ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ]; then
-        skip "$name (already linked)"
-    elif [ -d "$dst" ] && [ ! -L "$dst" ]; then
-        # ln would put the link inside the folder instead of replacing it
-        fail "$name" "already exists as a folder. Move it out of the way and re-run"
-    elif [ -f "$dst" ] && [ ! -L "$dst" ]; then
-        # A real file is in the way (e.g. the .zshrc Oh My Zsh creates): keep it, don't overwrite it
-        local backup; backup="$dst.backup-$(date +%Y%m%d-%H%M%S)"
-        if out="$(mv "$dst" "$backup" 2>&1 && ln -s "$src" "$dst" 2>&1)"; then
-            ok "Linked $name (the file that was there is now ${backup/#$HOME/~})"
-        else
-            fail "Linking $name" "$out"
-        fi
-    elif out="$(mkdir -p "$(dirname "$dst")" 2>&1 && ln -sf "$src" "$dst" 2>&1)"; then
-        ok "Linked $name"
-    else
-        fail "Linking $name" "$out"
-    fi
-}
-
 symlink "$DOTFILES/zsh/.zshrc"                 "$HOME/.zshrc"
 symlink "$DOTFILES/git/.gitconfig"             "$HOME/.gitconfig"
 symlink "$DOTFILES/zed/settings.json"          "$HOME/.config/zed/settings.json"

@@ -28,7 +28,7 @@ First boot is slow while Bazzite downloads updates and sets up drivers. Then ope
 ## 2. Clone the repo
 
 ```sh
-git clone https://github.com/pierre-charles/dotfiles-public.git ~/dotfiles
+git clone https://github.com/pierre-charles/dotfiles.git ~/dotfiles
 ```
 
 ## 3. Run setup

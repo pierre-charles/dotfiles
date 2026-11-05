@@ -22,7 +22,7 @@ Don't want some of the apps or extensions? Delete them from `setup-ubuntu.sh` be
 
 ```sh
 sudo apt update && sudo apt install -y git
-git clone https://github.com/pierre-charles/dotfiles-public.git ~/dotfiles
+git clone https://github.com/pierre-charles/dotfiles.git ~/dotfiles
 ```
 
 ## 2. Run setup

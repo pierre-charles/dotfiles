@@ -5,7 +5,7 @@ How to put these dotfiles on a machine. For what they are and why, see the [READ
 ## Quick start
 
 ```sh
-git clone https://github.com/pierre-charles/dotfiles-public.git ~/dotfiles
+git clone https://github.com/pierre-charles/dotfiles.git ~/dotfiles
 bash ~/dotfiles/setup.sh            # macOS
 bash ~/dotfiles/setup-ubuntu.sh     # Ubuntu (GNOME)
 bash ~/dotfiles/setup-bazzite.sh    # Bazzite (KDE)

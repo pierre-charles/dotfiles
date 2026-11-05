@@ -23,7 +23,7 @@ This gives you `git`. Wait for the installer window to finish.
 ## 2. Clone the repo
 
 ```sh
-git clone https://github.com/pierre-charles/dotfiles-public.git ~/dotfiles
+git clone https://github.com/pierre-charles/dotfiles.git ~/dotfiles
 ```
 
 Any folder works. If you fork it, clone your fork instead so you can push your changes.

@@ -1,94 +1,28 @@
 # dotfiles
 
-My shell, git and editor config, plus setup scripts that turn a fresh macOS, Ubuntu or Bazzite machine into the same zsh + Homebrew environment. Catppuccin Mocha everywhere.
+I'd been putting this off for years. This is finally the dotfiles repo I keep using on all my machines: one stop shop for my shell, git and editor config, tuned until every machine feels the same. Catppuccin Mocha everywhere.
 
-Use them as they are, or fork the repo and change things to suit you (start with `brew/Brewfile` and `zsh/.zshrc`).
+Want to use them? See [SETUP.md](SETUP.md).
 
-## Quick start
+## Why three setups
 
-```sh
-git clone https://github.com/pierre-charles/dotfiles-public.git ~/dotfiles
-bash ~/dotfiles/setup.sh            # macOS
-bash ~/dotfiles/setup-ubuntu.sh     # Ubuntu (GNOME)
-bash ~/dotfiles/setup-bazzite.sh    # Bazzite (KDE)
-```
+Every machine gets the same core: Homebrew, zsh with the Spaceship prompt, the CLI tools, and the configs in this repo. Each OS then has its own script for what only that OS needs.
 
-You can clone it anywhere: the scripts and `.zshrc` find the repo from their own location. Then add your git name and email (see [Your own settings](#your-own-settings)).
+| Machine | Why | What its script adds |
+|---------|-----|----------------------|
+| **macOS** | Where I spend most of my day | The apps as Homebrew casks, iTerm2 shell integration |
+| **Ubuntu** | I was sick of setting it up from scratch and customising it all over again every time | apt packages, Obsidian, Brave, Zed, 1Password and 12 GNOME extensions |
+| **Bazzite** | My gaming PC, which I keep tinkering with to make it a fullscreen gaming rig | Flatpak apps, Steam starting in Big Picture Mode, KDE set up for a PC that never locks or sleeps |
 
-> [!WARNING]
-> Setup **links** your `~/.zshrc`, `~/.gitconfig` and some `~/.config` folders to this repo. Files already there are kept as `<name>.backup-<date>`, but read what it does first.
+The Linux scripts run the shared `setup.sh` first, so the shell is the same everywhere and only the desktop differs.
 
-| Machine | Guide | Script |
-|---------|-------|--------|
-| macOS (Apple Silicon) | [docs/macos.md](docs/macos.md) | `setup.sh` |
-| Ubuntu with GNOME | [docs/ubuntu.md](docs/ubuntu.md) | `setup-ubuntu.sh` (runs `setup.sh` too) |
-| Bazzite with KDE | [docs/bazzite.md](docs/bazzite.md) | `setup-bazzite.sh` (runs `setup.sh` too) |
+## How the setup works
 
-All the scripts are safe to re-run: anything already installed or linked is skipped. They show each step as a checkbox (`[✓]` done, `[–]` already done, `[✗]` failed) and carry on past failures. A summary at the end lists any problems. The helpers are in `lib/output.sh`.
-
-## What gets installed
-
-`setup.sh` installs `brew/Brewfile` with Homebrew (on Linux too). Each guide has a table of what its own script adds.
-
-| Group | Packages |
-|-------|----------|
-| Shell | `zsh`, `spaceship` (prompt), `zsh-autosuggestions`, `zsh-syntax-highlighting`, `fzf-tab` |
-| CLI tools | `bat`, `btop`, `eza`, `fd`, `fzf`, `jq`, `ripgrep`, `tree`, `wget`, `gum`, `lazygit`, `yazi`, `git-delta`, `tlrc` (`tldr`), `poppler` |
-| git | `git`, `gh`, `git-secrets` |
-| Languages | `node`, `fnm`, `deno`, `python@3.14`, `pyenv`, `openjdk@21`, `gcc`, plus `corepack` from npm |
-| Containers | `docker`, `docker-compose` |
-| Media | `ffmpeg`, `yt-dlp` |
-| Other | `herdr` |
-| Fonts | Geist, MesloLG Nerd Font |
-| Apps (macOS only) | 1Password, Brave, iTerm2, Obsidian, Zed. The Linux scripts install these their own way |
-
-## What's here
-
-| Path | Goes to | How |
-|------|---------|-----|
-| `brew/Brewfile` | — | installed by `setup.sh` |
-| `zsh/.zshrc` | `~/.zshrc` | link |
-| `git/.gitconfig` | `~/.gitconfig` | link |
-| `zed/settings.json`, `zed/keymap.json` | `~/.config/zed/` | link |
-| `herdr/config.toml` | `~/.config/herdr/config.toml` | link |
-| `yazi/` | `~/.config/yazi` | link (themes listed in `package.toml`, downloaded by `setup.sh`) |
-| `btop/` | `~/.config/btop` | link (Catppuccin theme in `themes/`) |
-| `lazygit/config.yml` | — | read through `LG_CONFIG_FILE` in `.zshrc` |
-| `eza/theme.yml` | — | read through `EZA_CONFIG_DIR` in `.zshrc` |
-| `iterm2/*.itermcolors` | — | Catppuccin colour presets to import into iTerm2 (macOS) |
-
-Linked files are the repo copy, so editing them on the machine edits the repo.
-
-## Your own settings
-
-Two files that aren't in the repo hold anything personal or machine-specific. Create them yourself:
-
-**`~/.gitconfig.local`** (included by `.gitconfig`). Git needs it before you can commit:
-
-```ini
-[user]
-	name = Your Name
-	email = you@example.com
-```
-
-**`~/.zshrc.local`** (sourced at the end of `.zshrc`). Use it for work aliases, extra `PATH` entries and tokens:
-
-```sh
-export NPM_TOKEN=...
-alias work="cd ~/Projects/work"
-```
-
-## Day to day
-
-```sh
-~dotfiles                # named directory: goes to the repo
-git pull                 # get changes made on another machine
-bash setup.sh            # or setup-ubuntu.sh / setup-bazzite.sh: picks up new packages and links
-```
-
-To add a package, add a line to `brew/Brewfile`. A cask that only exists on macOS needs `if OS.mac?` after it, or it stops `setup.sh` on Linux.
-
-**Colours:** Catppuccin Mocha everywhere: Zed, yazi, fzf, bat (and through it delta), eza, lazygit, btop, and herdr (its `catppuccin` theme). iTerm2 is the one to set by hand, see [docs/macos.md](docs/macos.md#5-app-settings).
+- **One command per machine.** Clone, run the script for your OS, log out and back in.
+- **Safe to re-run.** Anything already installed or linked is skipped, so re-running after a `git pull` picks up only what's new.
+- **Carries on past failures.** Each step shows `[✓]` done, `[–]` already done or `[✗]` failed with the reason, and a summary at the end lists every problem.
+- **Linked, not copied.** `~/.zshrc`, `~/.gitconfig` and the app configs are links into the repo, so a tweak on one machine is a commit away from all of them.
+- **Nothing personal in the repo.** Your git identity and machine-specific shell config live in `~/.gitconfig.local` and `~/.zshrc.local`.
 
 ## Shell shortcuts
 

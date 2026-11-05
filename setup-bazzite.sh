@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Bazzite (Fedora Atomic) setup: Flatpak apps, KDE config, Steam Big Picture autostart,
-# plus the shared setup.sh (Homebrew, Oh My Zsh, config links, git-secrets).
+# plus the shared setup.sh (Homebrew, Oh My Zsh, config links).
 # No `set -e`: a failed step is shown with a red [✗], the rest still runs, and the summary lists failures.
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -12,7 +12,7 @@ need_sudo
 # --- rpm-ostree packages ---
 # Bazzite is immutable: most things come from Flatpak or Homebrew. Only layer what must be system-level.
 section "System packages (rpm-ostree)"
-RPM_PACKAGES=(zsh git-secrets)
+RPM_PACKAGES=(zsh)
 missing=()
 for pkg in "${RPM_PACKAGES[@]}"; do
     if rpm -q "$pkg" &> /dev/null; then skip "$pkg (already installed)"; else missing+=("$pkg"); fi
@@ -29,7 +29,7 @@ else
     run "Setting zsh as your login shell (after you log out)" sudo chsh -s /usr/bin/zsh "$USER"
 fi
 
-# --- Shared setup: Homebrew, Oh My Zsh, config links, git-secrets ---
+# --- Shared setup: Homebrew, Oh My Zsh, config links ---
 source "$DOTFILES/setup.sh"
 
 # --- Flatpak apps ---

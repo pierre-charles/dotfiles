@@ -30,8 +30,6 @@ brew "gh"
 brew "git"
 # Syntax-highlighting pager for git diffs
 brew "git-delta"
-# Prevents you from committing secrets and credentials into git repositories
-brew "git-secrets"
 # Tool for glamorous shell scripts
 brew "gum"
 # Agent multiplexer that lives in your terminal

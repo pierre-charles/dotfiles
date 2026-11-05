@@ -8,8 +8,8 @@ For Ubuntu with GNOME. `setup-ubuntu.sh` installs system packages with apt, runs
 |------|------|---------|
 | `build-essential`, `procps`, `curl`, `wget`, `file`, `git`, `zsh` | apt | build tools Homebrew needs, and zsh as the login shell |
 | GNOME Tweaks, Extension Manager | apt | see [GNOME](#gnome) |
-| CLI tools, languages, shell plugins | Homebrew | `brew/Brewfile`, listed in the [README](../README.md#what-gets-installed). The macOS-only apps are skipped |
-| Oh My Zsh, config links, git-secrets hooks | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
+| CLI tools, languages, shell plugins | Homebrew | `brew/Brewfile`, listed in [SETUP.md](../SETUP.md#what-gets-installed). The macOS-only apps are skipped |
+| Oh My Zsh, config links | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
 | Obsidian | Snap | |
 | Brave | Brave's install script (adds its apt repo) | |
 | Zed | Zed's install script | in `~/.local/zed.app`, updates itself |
@@ -40,7 +40,7 @@ It asks for your password once at the start, then shows each step as a checkbox:
 | sudo | asks for your password once and keeps it for the whole run | enter your password |
 | apt packages | build tools, `curl`, `wget`, `git`, `zsh`, GNOME Tweaks, Extension Manager | — |
 | Shell | switches your login shell to zsh (skipped if it already is) | — |
-| `setup.sh` steps | Homebrew + Brewfile, Oh My Zsh, config links, git-secrets hooks | wait, Homebrew takes a while (`tail -f` the log to watch) |
+| `setup.sh` steps | Homebrew + Brewfile, Oh My Zsh, config links | wait, Homebrew takes a while (`tail -f` the log to watch) |
 | Apps | Obsidian (Snap), Brave and Zed (their install scripts), 1Password (its own apt repo) | — |
 | GNOME extensions | a GNOME dialog pops up for each one not yet installed | click **Install** each time (within 5 minutes) |
 
@@ -54,7 +54,7 @@ git config --file ~/.gitconfig.local user.email "you@example.com"
 gh auth login
 ```
 
-Machine-specific shell config goes in `~/.zshrc.local`, see the [README](../README.md#your-own-settings).
+Machine-specific shell config goes in `~/.zshrc.local`, see [SETUP.md](../SETUP.md#your-own-settings).
 
 ## Check it worked
 

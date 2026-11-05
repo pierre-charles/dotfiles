@@ -8,9 +8,9 @@ For a gaming PC running [Bazzite](https://bazzite.gg) (Fedora Atomic with gaming
 
 | What | From | Details |
 |------|------|---------|
-| `zsh`, `git-secrets` | rpm-ostree (layered) | the only system-level packages. They need a reboot |
-| CLI tools, languages, shell plugins | Homebrew | `brew/Brewfile`, listed in the [README](../README.md#what-gets-installed). The macOS-only apps are skipped |
-| Oh My Zsh, config links, git-secrets hooks | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
+| `zsh` | rpm-ostree (layered) | the only system-level package. It needs a reboot |
+| CLI tools, languages, shell plugins | Homebrew | `brew/Brewfile`, listed in [SETUP.md](../SETUP.md#what-gets-installed). The macOS-only apps are skipped |
+| Oh My Zsh, config links | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
 | Obsidian, Brave, 1Password | Flatpak (Flathub) | |
 | Zed | Zed's install script | in `~/.local/zed.app`, updates itself |
 | Steam autostart | `~/.config/autostart/steam-bpm.desktop` | Steam opens in Big Picture Mode at login |
@@ -40,9 +40,9 @@ bash ~/dotfiles/setup-bazzite.sh
 | Step | What happens | You need to |
 |------|--------------|-------------|
 | sudo | asks for your password once | enter your password |
-| rpm-ostree | layers `zsh` and `git-secrets` (needs a reboot) | — |
+| rpm-ostree | layers `zsh` (needs a reboot) | — |
 | Shell | switches login shell to zsh | — |
-| `setup.sh` steps | Homebrew + Brewfile, Oh My Zsh, config links, git-secrets hooks | wait, Homebrew takes a while |
+| `setup.sh` steps | Homebrew + Brewfile, Oh My Zsh, config links | wait, Homebrew takes a while |
 | Flatpak apps | Obsidian, Brave, 1Password | — |
 | Zed | Zed's install script | — |
 | Steam BPM | creates an autostart entry for Steam in Big Picture Mode | — |
@@ -63,7 +63,7 @@ Then open **Steam** and sign in. It launches in Big Picture Mode on every boot f
 ## Check it worked
 
 ```sh
-rpm-ostree status                               # zsh and git-secrets under LayeredPackages
+rpm-ostree status                               # zsh under LayeredPackages
 echo $SHELL                                     # /usr/bin/zsh
 ls -l ~/.gitconfig ~/.zshrc                     # both should point into the repo
 brew bundle check --file=~dotfiles/brew/Brewfile

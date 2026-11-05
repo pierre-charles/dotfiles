@@ -6,12 +6,11 @@ For Apple Silicon Macs. `setup.sh` installs everything with Homebrew and Oh My Z
 
 | What | From | Details |
 |------|------|---------|
-| CLI tools, languages, shell plugins, fonts | Homebrew | `brew/Brewfile`, listed in the [README](../README.md#what-gets-installed) |
+| CLI tools, languages, shell plugins, fonts | Homebrew | `brew/Brewfile`, listed in [SETUP.md](../SETUP.md#what-gets-installed) |
 | Apps: 1Password, Brave, iTerm2, Obsidian, Zed | Homebrew casks | in `brew/Brewfile` |
 | Oh My Zsh | its install script | Spaceship and the zsh plugins come from Homebrew instead |
-| Config links | this repo | `.zshrc`, `.gitconfig`, Zed, herdr, yazi and btop. Table in the [README](../README.md#whats-here) |
+| Config links | this repo | `.zshrc`, `.gitconfig`, Zed, herdr, yazi and btop. Table in [SETUP.md](../SETUP.md#whats-here) |
 | iTerm2 shell integration | iterm2.com | `~/.iterm2_shell_integration.zsh`, loaded by `.zshrc` (marks each command, enables iTerm features like jumping between prompts) |
-| git-secrets hooks | `git secrets --install` | copied into every new repo, to block AWS keys from being committed |
 
 ## 1. Command line tools
 
@@ -44,7 +43,6 @@ It shows each step as a checkbox: `[✓]` done, `[–]` already done, `[✗]` fa
 | Oh My Zsh | installs it (skipped if it's already there) | — |
 | Config links | links `.zshrc`, `.gitconfig`, Zed, herdr, yazi and btop, then downloads the yazi theme. A real file in the way, like the `.zshrc` Oh My Zsh creates, is kept as `<name>.backup-<date>` | — |
 | iTerm2 shell integration | downloads it if it isn't there | — |
-| git-secrets | installs the hooks new repos get (AWS key checks on commit) | — |
 
 Then load the new shell config:
 
@@ -61,7 +59,7 @@ git config --file ~/.gitconfig.local user.name "Your Name"
 git config --file ~/.gitconfig.local user.email "you@example.com"
 ```
 
-Anything else that's only for this machine goes in `~/.zshrc.local`, see the [README](../README.md#your-own-settings).
+Anything else that's only for this machine goes in `~/.zshrc.local`, see [SETUP.md](../SETUP.md#your-own-settings).
 
 ## 5. App settings
 

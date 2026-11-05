@@ -31,7 +31,7 @@ else
     run "Setting zsh as your login shell (after you log out)" sudo chsh -s /usr/bin/zsh "$USER"
 fi
 
-# --- Shared setup: Homebrew, Oh My Zsh, config links, git-secrets (adds to the same summary) ---
+# --- Shared setup: Homebrew, Oh My Zsh, config links (adds to the same summary) ---
 source "$DOTFILES/setup.sh"
 
 # --- Apps whose Homebrew casks are macOS-only ---

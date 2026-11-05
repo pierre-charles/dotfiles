@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Shared setup (macOS and Linux): Homebrew, Oh My Zsh, config links, git-secrets.
+# Shared setup (macOS and Linux): Homebrew, Oh My Zsh, config links.
 # No `set -e`: a failed step is shown with a red [✗], the rest still runs, and the summary lists failures.
 
 # The repo is wherever this script is, so it can be cloned anywhere
@@ -106,14 +106,6 @@ if [ "$(uname -s)" = "Darwin" ]; then
         run "Downloading iTerm2 shell integration" \
             curl -fsSL https://iterm2.com/shell_integration/zsh -o "$HOME/.iterm2_shell_integration.zsh"
     fi
-fi
-
-# --- git-secrets hooks (copied into new repos by init.templateDir in .gitconfig) ---
-section "git-secrets"
-if [ -d "$HOME/.git-templates/git-secrets" ]; then
-    skip "~/.git-templates/git-secrets (already installed)"
-else
-    run "Installing git-secrets hooks" git secrets --install "$HOME/.git-templates/git-secrets"
 fi
 
 # Run directly (macOS): print the summary. Sourced by setup-ubuntu.sh and setup-bazzite.sh: it prints one at the end

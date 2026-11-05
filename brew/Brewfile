@@ -1,0 +1,78 @@
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Isolated development environments using Docker
+brew "docker-compose"
+# Modern, maintained replacement for ls
+brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Fast and simple Node.js version manager
+brew "fnm"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Tab completion as an fzf list (sourced in .zshrc)
+brew "fzf-tab"
+# GNU compiler collection
+brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git diffs
+brew "git-delta"
+# Prevents you from committing secrets and credentials into git repositories
+brew "git-secrets"
+# Tool for glamorous shell scripts
+brew "gum"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Development kit for the Java programming language
+brew "openjdk@21", link: true
+# PDF rendering tools (pdftoppm, used for PDF previews in yazi and Claude Code)
+brew "poppler"
+# Python version management
+brew "pyenv"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Short, practical command examples (the `tldr` command)
+brew "tlrc"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Zsh prompt for Astronauts
+brew "spaceship"
+# Internet file retriever
+brew "wget"
+# Terminal file manager with previews (`y` in .zshrc)
+brew "yazi"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+npm "corepack"
+cask "1password" if OS.mac?  # Linux: apt repo, see setup-ubuntu.sh
+cask "brave-browser" if OS.mac?  # Linux: dl.brave.com install script, see setup-ubuntu.sh
+cask "font-geist"
+cask "font-meslo-lg-nerd-font"
+cask "iterm2" if OS.mac?
+cask "obsidian" if OS.mac?  # Linux: snap, see setup-ubuntu.sh
+cask "zed" if OS.mac?  # Linux: zed.dev install script, see docs/ubuntu.md

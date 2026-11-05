@@ -1,0 +1,3 @@
+# Colours: the Catppuccin theme, like Obsidian. Installed by `ya pkg install` (setup.sh), listed in package.toml
+[flavor]
+dark = "catppuccin-mocha"

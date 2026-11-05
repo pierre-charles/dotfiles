@@ -1,0 +1,241 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "tab_size": 2,
+  "inlay_hints": {
+    "show_background": false,
+    "show_other_hints": true,
+    "show_type_hints": false,
+    "show_parameter_hints": true,
+  },
+  "diff_view_style": "unified",
+  "cli_default_open_behavior": "existing_window",
+  "collaboration_panel": {
+    "dock": "right",
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "git_panel": {
+    "tree_view": true,
+    "dock": "right",
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": true,
+    "show": true,
+  },
+  "agent_servers": {
+    "gemini": {
+      "type": "registry",
+    },
+    "github-copilot-cli": {
+      "default_config_options": {
+        "model": "claude-sonnet-5",
+        "reasoning_effort": "high",
+        "allow_all": "on",
+        "mode": "agent",
+      },
+      "favorite_config_option_values": {
+        "reasoning_effort": ["high"],
+        "model": ["claude-sonnet-4.6"],
+      },
+      "type": "registry",
+    },
+    "claude-acp": {
+      "favorite_config_option_values": {
+        "model": ["anthropic.claude-opus-4-6-v1"],
+      },
+      "default_config_options": {
+        "effort": "medium",
+        "model": "anthropic.claude-opus-4-6-v1",
+        "reasoning_effort": "max",
+        "allow_all": "on",
+        "mode": "acceptEdits",
+      },
+      "type": "registry",
+    },
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "edit_predictions": {
+    "copilot": {
+      "enable_next_edit_suggestions": true,
+    },
+    "disabled_globs": [],
+    "provider": "copilot",
+  },
+  "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true,
+      },
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          // Ruff server settings go here
+          "lineLength": 120,
+          "lint": {
+            "extendSelect": ["I"],
+          },
+        },
+      },
+    },
+    "vtsls": {
+      "initialization_options": {
+        "settings": {
+          "typescript": {
+            "updateImportsOnFileMove": {
+              "enabled": "always",
+            },
+          },
+          "javascript": {
+            "updateImportsOnFileMove": {
+              "enabled": "always",
+            },
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+  },
+  "disable_ai": false,
+  "terminal": {
+    "font_size": 14.0,
+    "dock": "right",
+    "cursor_shape": "bar",
+    "font_family": "MesloLGS Nerd Font",
+  },
+  "bottom_dock_layout": "contained",
+  "tabs": {
+    "file_icons": false,
+    "git_status": true,
+  },
+  "title_bar": {},
+  "project_panel": {
+    "dock": "right",
+    "git_status_indicator": true,
+    "button": true,
+  },
+  "confirm_quit": true,
+  "agent": {
+    "threads_sidebar": {
+      "position": "right",
+    },
+    "sandbox_permissions": {
+      "network_hosts": ["docs.powertools.aws.dev"],
+    },
+    "thinking_display": "preview",
+    "play_sound_when_agent_done": "always",
+    "show_turn_stats": true,
+    "tool_permissions": {
+      "default": "allow",
+    },
+    "default_profile": "default",
+    "profiles": {
+      "test": {
+        "default_model": {
+          "provider": "copilot_chat",
+          "model": "claude-sonnet-4.6",
+          "enable_thinking": true,
+          "effort": "high",
+        },
+        "name": "Test",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {},
+      },
+      "default": {
+        "default_model": {
+          "effort": "high",
+          "enable_thinking": true,
+          "provider": "copilot_chat",
+          "model": "claude-sonnet-4.6",
+        },
+        "name": "Default",
+        "tools": {
+          "search_web": true,
+          "rename_symbol": true,
+          "go_to_definition": true,
+          "get_code_actions": true,
+          "find_references": true,
+          "thinking": true,
+          "terminal": true,
+          "save_file": true,
+          "restore_file_from_disk": true,
+          "read_file": true,
+          "open": true,
+          "now": true,
+          "move_path": true,
+          "list_directory": true,
+          "grep": true,
+          "find_path": true,
+          "fetch": true,
+          "edit_file": true,
+          "diagnostics": true,
+          "delete_path": true,
+          "create_directory": true,
+          "copy_path": true,
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {},
+      },
+    },
+    "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-5",
+    },
+    "dock": "right",
+    "model_parameters": [],
+  },
+  "soft_wrap": "editor_width",
+  "icon_theme": "Catppuccin Mocha",
+  "ui_font_size": 16.0,
+  "buffer_font_size": 16.0,
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true,
+    },
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright"],
+    },
+    "TypeScript": {
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+    },
+    "TSX": {
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+    },
+  },
+  "file_types": {
+    "Shell Script": [".zshrc.*"],
+  },
+  "format_on_save": "on",
+}

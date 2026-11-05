@@ -1,0 +1,3 @@
+# Enter on a text or code file opens it in Zed (default: $EDITOR, which falls back to vi)
+[opener]
+edit = [{ run = "zed %s", desc = "Zed", for = "unix" }]

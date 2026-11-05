@@ -16,7 +16,7 @@ For Ubuntu with GNOME. `setup-ubuntu.sh` installs system packages with apt, runs
 | 1Password | 1Password's apt repo | amd64 only |
 | 12 GNOME extensions | extensions.gnome.org | listed in [Extensions](#extensions) |
 
-Don't want some of the apps or extensions? Delete them from `setup-ubuntu.sh` before running it.
+Don't want some of the apps or extensions? Delete them from `scripts/setup-ubuntu.sh` before running it.
 
 ## 1. git and the repo
 
@@ -30,7 +30,7 @@ git clone https://github.com/pierre-charles/dotfiles.git ~/dotfiles
 Open a terminal **inside your GNOME desktop** (not over SSH: the extension step talks to GNOME Shell):
 
 ```sh
-bash ~/dotfiles/setup-ubuntu.sh
+bash ~/dotfiles/scripts/setup-ubuntu.sh
 ```
 
 It asks for your password once at the start, then shows each step as a checkbox: `[ ]` running, `[✓]` done, `[–]` already done, `[✗]` failed. Install output goes to a log file (its path is printed at the end). If a step fails, you get a red `[✗]` with the reason and the last lines of its output, and the script carries on with everything that doesn't depend on it. The **Summary** at the end lists every problem again.
@@ -102,7 +102,7 @@ gnome-extensions disable ubuntu-dock@ubuntu.com           # if you see two docks
 gnome-extensions disable tiling-assistant@ubuntu.com      # if window snapping fights gTile
 ```
 
-Adding or removing an extension for future machines: edit the `EXTENSIONS` list in `setup-ubuntu.sh` (each entry is `Name|UUID`; the UUID is shown on the extension's page and in `gnome-extensions list`) and the table above. The script never uninstalls anything; remove one from this machine with `gnome-extensions uninstall <uuid>`.
+Adding or removing an extension for future machines: edit the `EXTENSIONS` list in `scripts/setup-ubuntu.sh` (each entry is `Name|UUID`; the UUID is shown on the extension's page and in `gnome-extensions list`) and the table above. The script never uninstalls anything; remove one from this machine with `gnome-extensions uninstall <uuid>`.
 
 ### Back up extension settings
 
@@ -117,4 +117,4 @@ dconf load /org/gnome/shell/extensions/ < gnome-extensions.dconf   # on the new 
 
 - **A step shows `[✗]`:** the reason is on the same line and the end of its output is under it; the full log path is in the Summary. Fix it and re-run.
 - **`[✗] <extension>: ...`:** the message after it is GNOME's error. Cancelled dialogs show up here too. Re-run the script, or install it from Extension Manager.
-- **`brew bundle` fails on a cask:** most casks are macOS-only. Mark it `if OS.mac?` in `brew/Brewfile` and install the Linux version in `setup-ubuntu.sh`, like Obsidian, Brave and 1Password.
+- **`brew bundle` fails on a cask:** most casks are macOS-only. Mark it `if OS.mac?` in `brew/Brewfile` and install the Linux version in `scripts/setup-ubuntu.sh`, like Obsidian, Brave and 1Password.

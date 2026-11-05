@@ -3,9 +3,9 @@
 # plus the shared setup.sh (Homebrew, Oh My Zsh, config links).
 # No `set -e`: a failed step is shown with a red [✗], the rest still runs, and the summary lists failures.
 
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-source "$DOTFILES/lib/output.sh"
+source "$DOTFILES/scripts/lib/output.sh"
 
 need_sudo
 
@@ -30,7 +30,7 @@ else
 fi
 
 # --- Shared setup: Homebrew, Oh My Zsh, config links ---
-source "$DOTFILES/setup.sh"
+source "$DOTFILES/scripts/setup.sh"
 
 # --- Flatpak apps ---
 section "Flatpak apps"

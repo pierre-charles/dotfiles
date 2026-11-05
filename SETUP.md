@@ -6,9 +6,9 @@ How to put these dotfiles on a machine. For what they are and why, see the [READ
 
 ```sh
 git clone https://github.com/pierre-charles/dotfiles.git ~/dotfiles
-bash ~/dotfiles/setup.sh            # macOS
-bash ~/dotfiles/setup-ubuntu.sh     # Ubuntu (GNOME)
-bash ~/dotfiles/setup-bazzite.sh    # Bazzite (KDE)
+bash ~/dotfiles/scripts/setup.sh            # macOS
+bash ~/dotfiles/scripts/setup-ubuntu.sh     # Ubuntu (GNOME)
+bash ~/dotfiles/scripts/setup-bazzite.sh    # Bazzite (KDE)
 ```
 
 You can clone it anywhere: the scripts and `.zshrc` find the repo from their own location. Then add your git name and email (see [Your own settings](#your-own-settings)).
@@ -18,11 +18,11 @@ You can clone it anywhere: the scripts and `.zshrc` find the repo from their own
 
 | Machine | Guide | Script |
 |---------|-------|--------|
-| macOS (Apple Silicon) | [docs/macos.md](docs/macos.md) | `setup.sh` |
-| Ubuntu with GNOME | [docs/ubuntu.md](docs/ubuntu.md) | `setup-ubuntu.sh` (runs `setup.sh` too) |
-| Bazzite with KDE | [docs/bazzite.md](docs/bazzite.md) | `setup-bazzite.sh` (runs `setup.sh` too) |
+| macOS (Apple Silicon) | [docs/macos.md](docs/macos.md) | `scripts/setup.sh` |
+| Ubuntu with GNOME | [docs/ubuntu.md](docs/ubuntu.md) | `scripts/setup-ubuntu.sh` (runs `setup.sh` too) |
+| Bazzite with KDE | [docs/bazzite.md](docs/bazzite.md) | `scripts/setup-bazzite.sh` (runs `setup.sh` too) |
 
-All the scripts are safe to re-run: anything already installed or linked is skipped. They show each step as a checkbox (`[✓]` done, `[–]` already done, `[✗]` failed) and carry on past failures. A summary at the end lists any problems. The helpers are in `lib/output.sh`.
+All the scripts are safe to re-run: anything already installed or linked is skipped. They show each step as a checkbox (`[✓]` done, `[–]` already done, `[✗]` failed) and carry on past failures. A summary at the end lists any problems. The helpers are in `scripts/lib/output.sh`.
 
 ## What gets installed
 
@@ -44,6 +44,7 @@ All the scripts are safe to re-run: anything already installed or linked is skip
 
 | Path | Goes to | How |
 |------|---------|-----|
+| `scripts/` | — | the setup scripts, and `lib/output.sh` with their helpers |
 | `brew/Brewfile` | — | installed by `setup.sh` |
 | `zsh/.zshrc` | `~/.zshrc` | link |
 | `git/.gitconfig` | `~/.gitconfig` | link |
@@ -76,7 +77,7 @@ Two files that aren't in the repo hold anything personal or machine-specific. Cr
 ```sh
 ~dotfiles                # named directory: goes to the repo
 git pull                 # get changes made on another machine
-bash setup.sh            # or setup-ubuntu.sh / setup-bazzite.sh: picks up new packages and links
+bash scripts/setup.sh    # or scripts/setup-ubuntu.sh / setup-bazzite.sh: picks up new packages and links
 ```
 
 To add a package, add a line to `brew/Brewfile`. A cask that only exists on macOS needs `if OS.mac?` after it, or it stops `setup.sh` on Linux.

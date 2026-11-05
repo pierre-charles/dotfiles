@@ -31,7 +31,7 @@ Any folder works. If you fork it, clone your fork instead so you can push your c
 ## 3. Run setup
 
 ```sh
-bash ~/dotfiles/setup.sh
+bash ~/dotfiles/scripts/setup.sh
 ```
 
 It shows each step as a checkbox: `[✓]` done, `[–]` already done, `[✗]` failed (with the reason, and the script carries on). A **Summary** at the end lists any problems. It takes a while on a fresh machine.

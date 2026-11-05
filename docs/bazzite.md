@@ -17,7 +17,7 @@ For a gaming PC running [Bazzite](https://bazzite.gg) (Fedora Atomic with gaming
 | KDE settings | `kwriteconfig6` | Breeze Dark, task switcher shows only the current desktop, no screen lock, no auto-suspend |
 | Steam, Lutris | already on Bazzite | Lutris is for non-Steam games (Epic, GOG…) |
 
-The KDE settings suit a machine that sits under a TV. Remove that section from `setup-bazzite.sh` if you want screen lock and suspend.
+The KDE settings suit a machine that sits under a TV. Remove that section from `scripts/setup-bazzite.sh` if you want screen lock and suspend.
 
 ## 1. Install Bazzite
 
@@ -34,7 +34,7 @@ git clone https://github.com/pierre-charles/dotfiles.git ~/dotfiles
 ## 3. Run setup
 
 ```sh
-bash ~/dotfiles/setup-bazzite.sh
+bash ~/dotfiles/scripts/setup-bazzite.sh
 ```
 
 | Step | What happens | You need to |

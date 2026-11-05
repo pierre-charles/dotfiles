@@ -2,11 +2,11 @@
 # Shared setup (macOS and Linux): Homebrew, Oh My Zsh, config links.
 # No `set -e`: a failed step is shown with a red [✗], the rest still runs, and the summary lists failures.
 
-# The repo is wherever this script is, so it can be cloned anywhere
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# The repo is the folder above this script, so it can be cloned anywhere
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BREWFILE="$DOTFILES/brew/Brewfile"
 
-source "$DOTFILES/lib/output.sh"
+source "$DOTFILES/scripts/lib/output.sh"
 
 need_sudo
 

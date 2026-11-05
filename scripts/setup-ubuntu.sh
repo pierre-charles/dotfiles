@@ -3,8 +3,8 @@
 # Run from a terminal inside your GNOME session (extensions install through GNOME Shell).
 # No `set -e`: a failed step is shown with a red [✗], the rest still runs, and the summary lists failures.
 
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$DOTFILES/lib/output.sh"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$DOTFILES/scripts/lib/output.sh"
 
 apt_installed() { dpkg-query -W -f='${Status}' "$1" 2>/dev/null | grep -q "ok installed"; }
 
@@ -32,7 +32,7 @@ else
 fi
 
 # --- Shared setup: Homebrew, Oh My Zsh, config links (adds to the same summary) ---
-source "$DOTFILES/setup.sh"
+source "$DOTFILES/scripts/setup.sh"
 
 # --- Apps whose Homebrew casks are macOS-only ---
 section "Apps"

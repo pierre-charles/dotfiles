@@ -79,10 +79,10 @@ hash -d worktrees="$HOME/Projects/worktrees"
 # === Aliases ===
 
 # --- Listing files ---
-alias ls="ls --color=auto"
-alias ll="eza -la --git --group-directories-first"  # ls stays real ls: eza flags differ (-t takes a value)
-alias la="eza -a"
-alias l="eza"
+alias ls="eza"  # flags differ from ls: sort by time is `ls -l -s modified`, not `ls -lt`
+alias ll="eza -l --header --icons --git --group-directories-first"
+alias la="eza -la --header --icons --git --group-directories-first"
+alias tree="eza --tree"
 alias cat="bat"
 
 # --- Shell config ---

@@ -41,7 +41,7 @@ What `zsh/.zshrc` and `git/.gitconfig` set up:
 
 | Type | Does |
 |------|------|
-| `ll`, `la`, `l` | list files with `eza` (`ll`: everything, sizes, git status). `ls` stays plain `ls` |
+| `ls`, `ll`, `la`, `tree` | `eza` instead of `ls` and `tree`: `ll` is the long list with icons and git status, `la` adds hidden files |
 | `cat` | `bat`: syntax highlighting and line numbers |
 | Tab | completions as a searchable fzf list (fzf-tab), with a folder preview for `cd` |
 | Ctrl+R | search command history with fzf |

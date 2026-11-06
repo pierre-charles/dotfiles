@@ -9,6 +9,7 @@ w() { defaults write com.superlogical.rex "$@"; }
 w Workspace.customThemes -data "$(xxd -p themes.json | tr -d '\n')"
 w Workspace.darkThemeID custom-F1902CEC-C1EB-4190-9A04-5ABD7B6CB2E6
 w Workspace.lightThemeID merino-light
+w Workspace.lightUsesExtendedThemePalette -bool true
 w Workspace.interfaceStyle useTheme
 w Workspace.terminalFontName "MesloLGL Nerd Font Mono"
 w Workspace.terminalFontPointSize -float 14
@@ -23,3 +24,6 @@ w Workspace.inactivePaneFadeMode both
 w Workspace.usesPaneGlass -bool false
 w Workspace.usesStandardInactiveWindowPaneStyles -bool true
 w rex.agents.names-sessions -bool true
+w rex.client.remoteControl -bool true
+w rex.server.automatic-restart-enabled -bool true
+w rex.server.block-plugin-reload-enabled -bool false

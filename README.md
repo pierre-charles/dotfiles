@@ -2,6 +2,17 @@
 
 I'd been putting this off for years. This is finally the dotfiles repo I keep using on all my machines: one stop shop for my shell, git and editor config, tuned until every machine feels the same. Catppuccin Macchiato everywhere.
 
+<table>
+<tr>
+<td><img src="docs/screenshots/eza.png" alt="The repo listed with eza --tree"><br><sub><code>eza --tree</code></sub></td>
+<td><img src="docs/screenshots/fzf.png" alt="fzf's Ctrl+T file picker with a bat preview"><br><sub>fzf (Ctrl+T) with a <code>bat</code> preview</sub></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/lazygit.png" alt="lazygit showing the latest commit"><br><sub>lazygit</sub></td>
+<td><img src="docs/screenshots/yazi.png" alt="yazi browsing the scripts folder"><br><sub>yazi</sub></td>
+</tr>
+</table>
+
 Want to use them? See [SETUP.md](SETUP.md).
 
 ## Why three setups

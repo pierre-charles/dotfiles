@@ -30,7 +30,7 @@ export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
 export FZF_DEFAULT_OPTS='--reverse --border=rounded
   --color=bg+:#363A4F,spinner:#F4DBD6,hl:#ED8796,fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6
   --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796,selected-bg:#494D64,border:#6E738D,label:#CAD3F5'
-export FZF_CTRL_T_OPTS='--preview="bat --color=always {}" --preview-window=right:wrap'
+export FZF_CTRL_T_OPTS='--preview="bat --color=always --style=numbers {}" --preview-window=right:wrap'
 export FZF_ALT_C_OPTS='--preview="eza --tree --level=2 --color=always {}"'
 
 # --- Colours: Catppuccin Macchiato (fzf above, yazi and btop in their own folders) ---

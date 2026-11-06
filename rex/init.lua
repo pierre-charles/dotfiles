@@ -1,0 +1,1 @@
+-- Migrated from Herdr and iTerm2: no binding had a Rex counterpart, so Rex's defaults stand.

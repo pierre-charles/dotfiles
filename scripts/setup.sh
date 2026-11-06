@@ -66,9 +66,13 @@ symlink "$DOTFILES/zed/keymap.json"            "$HOME/.config/zed/keymap.json"
 symlink "$DOTFILES/herdr/config.toml"          "$HOME/.config/herdr/config.toml"
 symlink "$DOTFILES/yazi"                       "$HOME/.config/yazi"
 symlink "$DOTFILES/btop"                       "$HOME/.config/btop"
+symlink "$DOTFILES/rex/init.lua"              "$HOME/.config/rex/init.lua"
 
 # yazi themes are downloaded, not kept in git: install the ones listed in yazi/package.toml
 command -v ya &> /dev/null && run "Installing yazi themes" ya pkg install
+
+# Rex keeps its settings and theme in macOS preferences, so they're written, not linked
+[ "$(uname -s)" = "Darwin" ] && run "Applying Rex settings and theme" bash "$DOTFILES/rex/settings.sh"
 
 # --- iTerm2 shell integration (macOS): .zshrc sources it when it's there ---
 # Downloaded directly: iTerm's installer would also append a line to .zshrc, which is linked to this repo

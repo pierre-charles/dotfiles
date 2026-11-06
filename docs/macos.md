@@ -9,7 +9,7 @@ For Apple Silicon Macs. `setup.sh` installs everything with Homebrew and Oh My Z
 | CLI tools, languages, shell plugins, fonts | Homebrew | `brew/Brewfile`, listed in [SETUP.md](../SETUP.md#what-gets-installed) |
 | Apps: 1Password, Brave, iTerm2, Obsidian, Zed | Homebrew casks | in `brew/Brewfile` |
 | Oh My Zsh | its install script | Spaceship and the zsh plugins come from Homebrew instead |
-| Config links | this repo | `.zshrc`, `.gitconfig`, Zed, herdr, yazi and btop. Table in [SETUP.md](../SETUP.md#whats-here) |
+| Config links | this repo | `.zshrc`, `.gitconfig`, Zed, herdr, yazi, btop and Rex. Table in [SETUP.md](../SETUP.md#whats-here) |
 | iTerm2 shell integration | iterm2.com | `~/.iterm2_shell_integration.zsh`, loaded by `.zshrc` (marks each command, enables iTerm features like jumping between prompts) |
 
 ## 1. Command line tools
@@ -41,7 +41,7 @@ It shows each step as a checkbox: `[✓]` done, `[–]` already done, `[✗]` fa
 | sudo | asks for your password once and keeps it for the whole run | enter your password |
 | Homebrew | installs Homebrew, then everything in `brew/Brewfile` | wait, it takes a while (`tail -f` the log to watch) |
 | Oh My Zsh | installs it (skipped if it's already there) | — |
-| Config links | links `.zshrc`, `.gitconfig`, Zed, herdr, yazi and btop, then downloads the yazi theme. A real file in the way, like the `.zshrc` Oh My Zsh creates, is kept as `<name>.backup-<date>` | — |
+| Config links | links `.zshrc`, `.gitconfig`, Zed, herdr, yazi, btop and Rex's `init.lua`, downloads the yazi theme and writes Rex's settings and theme. A real file in the way, like the `.zshrc` Oh My Zsh creates, is kept as `<name>.backup-<date>` | — |
 | iTerm2 shell integration | downloads it if it isn't there | — |
 
 Then load the new shell config:
@@ -66,6 +66,7 @@ Anything else that's only for this machine goes in `~/.zshrc.local`, see [SETUP.
 - **iTerm2 colours:** Settings → Profiles → Colors → Color Presets → **Import…** → pick `iterm2/catppuccin-mocha.itermcolors` from the repo, then choose **catppuccin-mocha** in the same menu.
 - **iTerm2 font:** Settings → Profiles → Text → Font → **MesloLGS Nerd Font** (the prompt's icons need it).
 - **iTerm2 Alt+C:** Settings → Profiles → Keys → Left Option key → **Esc+**.
+- **Rex:** not on Homebrew, download Rex Beta from [superlogical.com/rex](https://www.superlogical.com/rex). `setup.sh` has already written its settings and theme.
 - **Zed:** the Homebrew cask installs the `zed` command, which git uses as its editor. If it ever goes missing, run `zed: install cli` from Zed's command palette.
 
 ## 6. Sign in

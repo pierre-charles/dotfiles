@@ -52,6 +52,8 @@ All the scripts are safe to re-run: anything already installed or linked is skip
 | `herdr/config.toml` | `~/.config/herdr/config.toml` | link |
 | `yazi/` | `~/.config/yazi` | link (themes listed in `package.toml`, downloaded by `setup.sh`) |
 | `btop/` | `~/.config/btop` | link (Catppuccin theme in `themes/`) |
+| `rex/init.lua` | `~/.config/rex/init.lua` | link |
+| `rex/settings.sh`, `rex/themes.json` | Rex's preferences (macOS) | written by `setup.sh` with `defaults`. Changed a setting in Rex? Update `settings.sh` |
 | `lazygit/config.yml` | — | read through `LG_CONFIG_FILE` in `.zshrc` |
 | `eza/theme.yml` | — | read through `EZA_CONFIG_DIR` in `.zshrc` |
 | `iterm2/*.itermcolors` | — | Catppuccin colour presets to import into iTerm2 (macOS) |
@@ -82,6 +84,6 @@ bash scripts/setup.sh    # or scripts/setup-ubuntu.sh / setup-bazzite.sh: picks 
 
 To add a package, add a line to `brew/Brewfile`. A cask that only exists on macOS needs `if OS.mac?` after it, or it stops `setup.sh` on Linux.
 
-**Colours:** Catppuccin Mocha everywhere: Zed, yazi, fzf, bat (and through it delta), eza, lazygit, btop, and herdr (its `catppuccin` theme). iTerm2 is the one to set by hand, see [docs/macos.md](docs/macos.md#5-app-settings).
+**Colours:** Catppuccin Mocha everywhere: Zed, yazi, fzf, bat (and through it delta), eza, lazygit, btop, Rex, and herdr (its `catppuccin` theme). iTerm2 is the one to set by hand, see [docs/macos.md](docs/macos.md#5-app-settings).
 
 For the shortcuts you get once it's done, see [Shell shortcuts](README.md#shell-shortcuts) in the README.

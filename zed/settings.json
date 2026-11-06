@@ -199,13 +199,13 @@
     "model_parameters": [],
   },
   "soft_wrap": "editor_width",
-  "icon_theme": "Catppuccin Mocha",
+  "icon_theme": "Catppuccin Macchiato",
   "ui_font_size": 16.0,
   "buffer_font_size": 16.0,
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha",
+    "dark": "Catppuccin Macchiato",
   },
   "indent_guides": {
     "enabled": true,

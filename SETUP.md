@@ -84,6 +84,6 @@ bash scripts/setup.sh    # or scripts/setup-ubuntu.sh / setup-bazzite.sh: picks 
 
 To add a package, add a line to `brew/Brewfile`. A cask that only exists on macOS needs `if OS.mac?` after it, or it stops `setup.sh` on Linux.
 
-**Colours:** Catppuccin Mocha everywhere: Zed, yazi, fzf, bat (and through it delta), eza, lazygit, btop, Rex, and herdr (its `catppuccin` theme). iTerm2 is the one to set by hand, see [docs/macos.md](docs/macos.md#5-app-settings).
+**Colours:** Catppuccin Macchiato everywhere: Zed, yazi, fzf, bat (and through it delta), eza, lazygit, btop, Rex, and herdr (its `catppuccin` theme). iTerm2 is the one to set by hand, see [docs/macos.md](docs/macos.md#5-app-settings).
 
 For the shortcuts you get once it's done, see [Shell shortcuts](README.md#shell-shortcuts) in the README.

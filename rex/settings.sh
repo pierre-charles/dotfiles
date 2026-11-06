@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Rex keeps its settings in macOS preferences, not in a file, so setup.sh writes them with `defaults`.
 # Changed something in Rex's Settings? Read it with `defaults read com.superlogical.rex` and update this file.
-# themes.json is Rex's custom themes as it stores them: Catppuccin Mocha, imported from iterm2/catppuccin-mocha.itermcolors
+# themes.json is Rex's custom themes as it stores them: Catppuccin Macchiato, imported from iterm2/catppuccin-macchiato.itermcolors
 cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
 set -e
 w() { defaults write com.superlogical.rex "$@"; }

@@ -63,7 +63,7 @@ Anything else that's only for this machine goes in `~/.zshrc.local`, see [SETUP.
 
 ## 5. App settings
 
-- **iTerm2 colours:** Settings → Profiles → Colors → Color Presets → **Import…** → pick `iterm2/catppuccin-mocha.itermcolors` from the repo, then choose **catppuccin-mocha** in the same menu.
+- **iTerm2 colours:** Settings → Profiles → Colors → Color Presets → **Import…** → pick `iterm2/catppuccin-macchiato.itermcolors` from the repo, then choose **catppuccin-macchiato** in the same menu.
 - **iTerm2 font:** Settings → Profiles → Text → Font → **MesloLGS Nerd Font** (the prompt's icons need it).
 - **iTerm2 Alt+C:** Settings → Profiles → Keys → Left Option key → **Esc+**.
 - **Rex:** not on Homebrew, download Rex Beta from [superlogical.com/rex](https://www.superlogical.com/rex). `setup.sh` has already written its settings and theme.

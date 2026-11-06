@@ -1,32 +1,32 @@
 # lazygit config, found through LG_CONFIG_FILE in zsh/.zshrc
-# Colours: Catppuccin Mocha, blue accent (github.com/catppuccin/lazygit)
+# Colours: Catppuccin Macchiato, blue accent (github.com/catppuccin/lazygit)
 gui:
   skipDiscardChangeWarning: true
   theme:
     activeBorderColor:
-      - '#89b4fa'
+      - '#8aadf4'
       - bold
     inactiveBorderColor:
-      - '#a6adc8'
+      - '#a5adcb'
     searchingActiveBorderColor:
-      - '#f9e2af'
+      - '#eed49f'
     optionsTextColor:
-      - '#89b4fa'
+      - '#8aadf4'
     selectedLineBgColor:
-      - '#313244'
+      - '#363a4f'
     inactiveViewSelectedLineBgColor:
-      - '#6c7086'
+      - '#6e738d'
     cherryPickedCommitFgColor:
-      - '#89b4fa'
+      - '#8aadf4'
     cherryPickedCommitBgColor:
-      - '#45475a'
+      - '#494d64'
     markedBaseCommitFgColor:
-      - '#89b4fa'
+      - '#8aadf4'
     markedBaseCommitBgColor:
-      - '#f9e2af'
+      - '#eed49f'
     unstagedChangesColor:
-      - '#f38ba8'
+      - '#ed8796'
     defaultFgColor:
-      - '#cdd6f4'
+      - '#cad3f5'
     authorColors:
-      '*': '#b4befe'
+      '*': '#b7bdf8'

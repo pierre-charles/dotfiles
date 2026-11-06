@@ -1,6 +1,6 @@
 # dotfiles
 
-I'd been putting this off for years. This is finally the dotfiles repo I keep using on all my machines: one stop shop for my shell, git and editor config, tuned until every machine feels the same. Catppuccin Mocha everywhere.
+I'd been putting this off for years. This is finally the dotfiles repo I keep using on all my machines: one stop shop for my shell, git and editor config, tuned until every machine feels the same. Catppuccin Macchiato everywhere.
 
 Want to use them? See [SETUP.md](SETUP.md).
 

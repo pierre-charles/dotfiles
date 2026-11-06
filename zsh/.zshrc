@@ -26,15 +26,15 @@ eval "$(fnm env --use-on-cd)"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
-# Colours: Catppuccin Mocha (github.com/catppuccin/fzf), without its bg so the terminal background shows
+# Colours: Catppuccin Macchiato (github.com/catppuccin/fzf), without its bg so the terminal background shows
 export FZF_DEFAULT_OPTS='--reverse --border=rounded
-  --color=bg+:#313244,spinner:#F5E0DC,hl:#F38BA8,fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC
-  --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8,selected-bg:#45475A,border:#6C7086,label:#CDD6F4'
+  --color=bg+:#363A4F,spinner:#F4DBD6,hl:#ED8796,fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6
+  --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796,selected-bg:#494D64,border:#6E738D,label:#CAD3F5'
 export FZF_CTRL_T_OPTS='--preview="bat --color=always {}" --preview-window=right:wrap'
 export FZF_ALT_C_OPTS='--preview="eza --tree --level=2 --color=always {}"'
 
-# --- Colours: Catppuccin Mocha (fzf above, yazi and btop in their own folders) ---
-export BAT_THEME="Catppuccin Mocha"  # built into bat; delta and the fzf previews use it too
+# --- Colours: Catppuccin Macchiato (fzf above, yazi and btop in their own folders) ---
+export BAT_THEME="Catppuccin Macchiato"  # built into bat; delta and the fzf previews use it too
 export EZA_CONFIG_DIR="$DOTFILES/eza"
 export LG_CONFIG_FILE="$DOTFILES/lazygit/config.yml"
 

@@ -37,6 +37,7 @@ export FZF_ALT_C_OPTS='--preview="eza --tree --level=2 --color=always {}"'
 export BAT_THEME="Catppuccin Macchiato"  # built into bat; delta and the fzf previews use it too
 export EZA_CONFIG_DIR="$DOTFILES/eza"
 export LG_CONFIG_FILE="$DOTFILES/lazygit/config.yml"
+export ATUIN_CONFIG_DIR="$DOTFILES/atuin"
 
 # === Shell: Oh My Zsh, prompt and plugins ===
 
@@ -49,9 +50,12 @@ source "$ZSH/oh-my-zsh.sh"
 # --- Spaceship prompt ---
 source "$HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh"
 
-# --- fzf shortcuts: Ctrl+R history, Ctrl+T files, Alt+C folders, ** then Tab ---
-# After Oh My Zsh, which binds Ctrl+R to its own history search
+# --- fzf shortcuts: Ctrl+T files, Alt+C folders, ** then Tab ---
 source <(fzf --zsh)
+
+# --- Atuin: Ctrl+R history search (SQLite, with folder, exit code and duration per command) ---
+# After Oh My Zsh and fzf, which both bind Ctrl+R. Up arrow stays zsh's own
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # --- fzf-tab: Tab completion as a searchable fzf list ---
 # Needs compinit (run by Oh My Zsh) first, and must load before autosuggestions and syntax highlighting

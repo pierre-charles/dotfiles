@@ -1,0 +1,5 @@
+# Read through ATUIN_CONFIG_DIR in .zshrc. Defaults: github.com/atuinsh/atuin/blob/main/crates/atuin-client/config.toml
+# History stays local unless you run `atuin login` to sync it
+
+[theme]
+name = "catppuccin-macchiato-mauve"  # in themes/, from github.com/catppuccin/atuin

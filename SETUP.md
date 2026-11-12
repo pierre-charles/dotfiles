@@ -30,7 +30,7 @@ All the scripts are safe to re-run: anything already installed or linked is skip
 
 | Group | Packages |
 |-------|----------|
-| Shell | `zsh`, `spaceship` (prompt), `zsh-autosuggestions`, `zsh-syntax-highlighting`, `fzf-tab` |
+| Shell | `zsh`, `spaceship` (prompt), `zsh-autosuggestions`, `zsh-syntax-highlighting`, `fzf-tab`, `atuin` (history) |
 | CLI tools | `bat`, `btop`, `eza`, `fd`, `fzf`, `jq`, `ripgrep`, `tree`, `wget`, `gum`, `lazygit`, `yazi`, `git-delta`, `tlrc` (`tldr`), `poppler` |
 | git | `git`, `gh` |
 | Languages | `node`, `fnm`, `deno`, `python@3.14`, `pyenv`, `openjdk@21`, `gcc`, plus `corepack` from npm |
@@ -56,6 +56,7 @@ All the scripts are safe to re-run: anything already installed or linked is skip
 | `rex/settings.sh`, `rex/themes.json` | Rex's preferences (macOS) | written by `setup.sh` with `defaults`. Changed a setting in Rex? Update `settings.sh` |
 | `lazygit/config.yml` | — | read through `LG_CONFIG_FILE` in `.zshrc` |
 | `eza/theme.yml` | — | read through `EZA_CONFIG_DIR` in `.zshrc` |
+| `atuin/` | — | read through `ATUIN_CONFIG_DIR` in `.zshrc` (Catppuccin theme in `themes/`) |
 | `iterm2/*.itermcolors` | — | Catppuccin colour presets to import into iTerm2 (macOS) |
 
 Linked files are the repo copy, so editing them on the machine edits the repo.
@@ -84,6 +85,6 @@ bash scripts/setup.sh    # or scripts/setup-ubuntu.sh / setup-bazzite.sh: picks 
 
 To add a package, add a line to `brew/Brewfile`. A cask that only exists on macOS needs `if OS.mac?` after it, or it stops `setup.sh` on Linux.
 
-**Colours:** Catppuccin Macchiato everywhere: Zed, yazi, fzf, bat (and through it delta), eza, lazygit, btop, Rex, and herdr (its `catppuccin` theme). iTerm2 is the one to set by hand, see [docs/macos.md](docs/macos.md#5-app-settings).
+**Colours:** Catppuccin Macchiato everywhere: Zed, yazi, fzf, bat (and through it delta), eza, lazygit, btop, atuin, Rex, and herdr (its `catppuccin` theme). iTerm2 is the one to set by hand, see [docs/macos.md](docs/macos.md#5-app-settings).
 
 For the shortcuts you get once it's done, see [Shell shortcuts](README.md#shell-shortcuts) in the README.

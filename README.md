@@ -44,7 +44,7 @@ What `zsh/.zshrc` and `git/.gitconfig` set up:
 | `ls`, `ll`, `la`, `tree` | `eza` instead of `ls` and `tree`: `ll` is the long list with icons and git status, `la` adds hidden files |
 | `cat` | `bat`: syntax highlighting and line numbers |
 | Tab | completions as a searchable fzf list (fzf-tab), with a folder preview for `cd` |
-| Ctrl+R | search command history with fzf |
+| Ctrl+R | search command history with atuin: filter by folder, session or host |
 | Ctrl+T | pick a file and paste its path, with a `bat` preview |
 | Alt+C | jump to a folder below. In iTerm this needs **Profiles → Keys → Left Option key: Esc+** |
 | `y` | yazi file manager. `q` quits into the folder you were in, `z` fuzzy-jumps, Enter opens text files in Zed |

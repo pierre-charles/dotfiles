@@ -10,7 +10,7 @@ For a gaming PC running [Bazzite](https://bazzite.gg) (Fedora Atomic with gaming
 |------|------|---------|
 | `zsh` | rpm-ostree (layered) | the only system-level package. It needs a reboot |
 | CLI tools, languages, shell plugins | Homebrew | `brew/Brewfile`, listed in [SETUP.md](../SETUP.md#what-gets-installed). The macOS-only apps are skipped |
-| Oh My Zsh, config links | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
+| Oh My Zsh, config links, fzf-git.sh | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
 | Obsidian, Brave, 1Password | Flatpak (Flathub) | |
 | Zed | Zed's install script | in `~/.local/zed.app`, updates itself |
 | Steam autostart | `~/.config/autostart/steam-bpm.desktop` | Steam opens in Big Picture Mode at login |

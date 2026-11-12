@@ -47,10 +47,16 @@ What `zsh/.zshrc` and `git/.gitconfig` set up:
 | Ctrl+R | search command history with atuin: filter by folder, session or host |
 | Ctrl+T | pick a file and paste its path, with a `bat` preview |
 | Alt+C | jump to a folder below. In iTerm this needs **Profiles → Keys → Left Option key: Esc+** |
+| Ctrl+G, then a letter | pick git things with fzf and paste them (fzf-git.sh): `B` branches, `H` commits, `F` changed files, `S` stashes, `W` worktrees, `?` for all |
+| Esc Esc | put `sudo` in front of the current command, or the last one if the line is empty |
 | `y` | yazi file manager. `q` quits into the folder you were in, `z` fuzzy-jumps, Enter opens text files in Zed |
 | `lg` | lazygit |
 | `mkcd <dir>` | make a folder and `cd` into it |
+| `copypath`, `copyfile <file>` | copy the current folder's path, or a file's contents, to the clipboard |
+| `extract <file>` (or `x`) | unpack any archive: zip, tar.gz, 7z, rar and more |
+| `dust`, `duf`, `glow <file>` | disk usage by folder, free space per drive, Markdown rendered in the terminal |
 | `reload` | start a fresh shell after editing `.zshrc` |
+| `.envrc` in a folder | loaded when you `cd` in and unloaded when you leave (direnv). Run `direnv allow` once per folder |
 | `~projects`, `~dotfiles`, `~worktrees` | named directories: `~dotfiles` on its own goes there, and they work in any path |
 | `git diff`, `git show` | shown through `delta`: changed words highlighted, `n` / `N` jump between files |
 | `git lg` | compact graph log. Also `git st`, `co`, `br`, `cm`, `df`, `unstage`, `last` |

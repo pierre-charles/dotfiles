@@ -74,6 +74,15 @@ command -v ya &> /dev/null && run "Installing yazi themes" ya pkg install
 # Rex keeps its settings and theme in macOS preferences, so they're written, not linked
 [ "$(uname -s)" = "Darwin" ] && run "Applying Rex settings and theme" bash "$DOTFILES/rex/settings.sh"
 
+# --- fzf-git.sh (Ctrl+G shortcuts): a single script, not in Homebrew. .zshrc sources it when it's there ---
+section "fzf-git.sh"
+if [ -f "$HOME/.fzf-git.sh" ]; then
+    skip "~/.fzf-git.sh (already installed)"
+else
+    run "Downloading fzf-git.sh" \
+        curl -fsSL https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh -o "$HOME/.fzf-git.sh"
+fi
+
 # --- iTerm2 shell integration (macOS): .zshrc sources it when it's there ---
 # Downloaded directly: iTerm's installer would also append a line to .zshrc, which is linked to this repo
 if [ "$(uname -s)" = "Darwin" ]; then

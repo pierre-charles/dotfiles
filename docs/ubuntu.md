@@ -9,7 +9,7 @@ For Ubuntu with GNOME. `setup-ubuntu.sh` installs system packages with apt, runs
 | `build-essential`, `procps`, `curl`, `wget`, `file`, `git`, `zsh` | apt | build tools Homebrew needs, and zsh as the login shell |
 | GNOME Tweaks, Extension Manager | apt | see [GNOME](#gnome) |
 | CLI tools, languages, shell plugins | Homebrew | `brew/Brewfile`, listed in [SETUP.md](../SETUP.md#what-gets-installed). The macOS-only apps are skipped |
-| Oh My Zsh, config links | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
+| Oh My Zsh, config links, fzf-git.sh | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
 | Obsidian | Snap | |
 | Brave | Brave's install script (adds its apt repo) | |
 | Zed | Zed's install script | in `~/.local/zed.app`, updates itself |

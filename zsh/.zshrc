@@ -44,7 +44,9 @@ export ATUIN_CONFIG_DIR="$DOTFILES/atuin"
 # --- Oh My Zsh ---
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""  # no Oh My Zsh theme: the Spaceship prompt below draws the prompt
-plugins=(git)
+# Built in: sudo (Esc twice adds sudo), copypath / copyfile (to the clipboard), extract (any archive),
+# direnv (loads a folder's .envrc), and gh and docker completions
+plugins=(git sudo copypath copyfile extract colored-man-pages direnv gh docker)
 source "$ZSH/oh-my-zsh.sh"
 
 # --- Spaceship prompt ---
@@ -52,6 +54,10 @@ source "$HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh"
 
 # --- fzf shortcuts: Ctrl+T files, Alt+C folders, ** then Tab ---
 source <(fzf --zsh)
+
+# --- fzf-git.sh: Ctrl+G then B branches, H commits, F changed files, S stashes, W worktrees, ? for the rest ---
+# Not in Homebrew: setup.sh downloads it
+test -e "$HOME/.fzf-git.sh" && source "$HOME/.fzf-git.sh"
 
 # --- Atuin: Ctrl+R history search (SQLite, with folder, exit code and duration per command) ---
 # After Oh My Zsh and fzf, which both bind Ctrl+R. Up arrow stays zsh's own
@@ -63,6 +69,9 @@ source "$HOMEBREW_PREFIX/share/fzf-tab/fzf-tab.zsh"
 zstyle ':completion:*' menu no                               # fzf-tab replaces zsh's own menu
 zstyle ':fzf-tab:*' use-fzf-default-opts yes                 # same colours as the other fzf lists
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# --- you-should-use: reminds you of an alias when you type the full command ---
+source "$HOMEBREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh"
 
 # --- Autosuggestions and syntax highlighting (from Homebrew) ---
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bold,underline"

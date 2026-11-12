@@ -8,10 +8,16 @@ brew "btop"
 brew "python@3.14"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
+# Loads and unloads a folder's .envrc when you cd in and out (Oh My Zsh direnv plugin)
+brew "direnv"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Isolated development environments using Docker
 brew "docker-compose"
+# Disk space on each drive, as a table
+brew "duf"
+# Disk usage by folder, as a tree
+brew "dust"
 # Modern, maintained replacement for ls
 brew "eza"
 # Simple, fast and user-friendly alternative to find
@@ -32,6 +38,8 @@ brew "gh"
 brew "git"
 # Syntax-highlighting pager for git diffs
 brew "git-delta"
+# Renders Markdown in the terminal
+brew "glow"
 # Tool for glamorous shell scripts
 brew "gum"
 # Agent multiplexer that lives in your terminal
@@ -68,6 +76,8 @@ brew "yt-dlp"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# Reminds you of an alias when you type the full command (sourced in .zshrc)
+brew "zsh-you-should-use"
 npm "corepack"
 cask "1password" if OS.mac?  # Linux: apt repo, see scripts/setup-ubuntu.sh
 cask "brave-browser" if OS.mac?  # Linux: dl.brave.com install script, see scripts/setup-ubuntu.sh

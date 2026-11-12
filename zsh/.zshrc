@@ -66,7 +66,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 
 # --- Autosuggestions and syntax highlighting (from Homebrew) ---
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8,bold,underline"
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(atuin history completion)  # atuin first: defined by `atuin init` above
 source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 

@@ -12,7 +12,7 @@ need_sudo
 
 # --- apt ---
 section "apt packages"
-APT_PACKAGES=(build-essential procps curl wget file git zsh gnome-tweaks gnome-shell-extension-manager)
+APT_PACKAGES=(build-essential procps curl wget file git zsh openssh-server gnome-tweaks gnome-shell-extension-manager)
 missing=()
 for pkg in "${APT_PACKAGES[@]}"; do
     if apt_installed "$pkg"; then skip "$pkg (already installed)"; else missing+=("$pkg"); fi

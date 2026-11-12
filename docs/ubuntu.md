@@ -6,7 +6,7 @@ For Ubuntu with GNOME. `setup-ubuntu.sh` installs system packages with apt, runs
 
 | What | From | Details |
 |------|------|---------|
-| `build-essential`, `procps`, `curl`, `wget`, `file`, `git`, `zsh` | apt | build tools Homebrew needs, and zsh as the login shell |
+| `build-essential`, `procps`, `curl`, `wget`, `file`, `git`, `zsh`, `openssh-server` | apt | build tools Homebrew needs, zsh as the login shell, and SSH into this machine (starts by itself) |
 | GNOME Tweaks, Extension Manager | apt | see [GNOME](#gnome) |
 | CLI tools, languages, shell plugins | Homebrew | `brew/Brewfile`, listed in [SETUP.md](../SETUP.md#what-gets-installed). The macOS-only apps are skipped |
 | Oh My Zsh, config links, fzf-git.sh | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
@@ -38,7 +38,7 @@ It asks for your password once at the start, then shows each step as a checkbox:
 | Step | What happens | You need to |
 |------|--------------|-------------|
 | sudo | asks for your password once and keeps it for the whole run | enter your password |
-| apt packages | build tools, `curl`, `wget`, `git`, `zsh`, GNOME Tweaks, Extension Manager | — |
+| apt packages | build tools, `curl`, `wget`, `git`, `zsh`, `openssh-server`, GNOME Tweaks, Extension Manager | — |
 | Shell | switches your login shell to zsh (skipped if it already is) | — |
 | `setup.sh` steps | Homebrew + Brewfile, Oh My Zsh, config links | wait, Homebrew takes a while (`tail -f` the log to watch) |
 | Apps | Obsidian (Snap), Brave and Zed (their install scripts), 1Password (its own apt repo) | — |

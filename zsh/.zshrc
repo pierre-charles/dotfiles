@@ -103,7 +103,7 @@ alias conf="zed ~/.zshrc"
 alias reload="exec zsh"  # fresh shell: removed aliases and functions go too, PATH isn't duplicated
 
 # --- Tools ---
-alias lg="lazygit"
+alias lg="rex do lazygit"
 alias ulid="deno run https://docs.deno.com/examples/scripts/ulid.ts"
 
 # --- JavaScript projects ---

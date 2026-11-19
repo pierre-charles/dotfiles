@@ -3,3 +3,18 @@
 on   = "b"
 run  = "plugin what-size"
 desc = "Size of the selection, or of this folder (what-size plugin)"
+
+[[mgr.prepend_keymap]]
+on   = "l"
+run  = "plugin smart-enter"
+desc = "Enter the folder, or open the file (smart-enter plugin)"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = "plugin chmod"
+desc = "Change permissions of the selection, e.g. 770 (chmod plugin)"
+
+[[mgr.prepend_keymap]]
+on   = "T"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximise or restore the preview (toggle-pane plugin)"

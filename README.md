@@ -72,6 +72,8 @@ What `zsh/.zshrc` and `git/.gitconfig` set up:
 
 Start it with `y`, press `~` inside for the full list.
 
+Plugins (in `yazi/package.toml`): what-size, chmod, smart-enter, toggle-pane, plus git (each file's git status in the list), piper (Markdown previews through `glow`) and full-border (rounded borders).
+
 | Key | Does |
 |-----|------|
 | `a` | new file. End the name with `/` for a folder (`photos/`) |
@@ -80,10 +82,13 @@ Start it with `y`, press `~` inside for the full list.
 | `y` / `x` / `p` | copy / cut / paste. `P` pastes over files with the same name |
 | `Space` / `v` / `Ctrl+a` | select one and move down / select a range / select all. `Esc` clears |
 | Enter or `o` | open: text files in Zed, others in their usual app. `O` lists every way to open it |
+| `l` | go into the folder, or open the file (smart-enter plugin) |
 | `z` / `/` / `s` / `S` | fuzzy-jump below (fzf) / find in this folder / search names below (fd) / search inside files (ripgrep) |
 | `c` `c` | copy the full path |
+| `c` `m` | change permissions of the selection, e.g. `770` (chmod plugin) |
 | `;` | run a shell command on the selected files |
-| `t` | new tab |
+| `t` `t` | new tab |
+| `T` | maximise or restore the preview (toggle-pane plugin) |
 | `.` | show or hide hidden files |
 | `b` | size of the selection, or of the folder you're in, contents included (what-size plugin, slow on huge folders) |
 | `q` | quit into the folder you were in |

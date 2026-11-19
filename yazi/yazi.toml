@@ -1,3 +1,19 @@
 # Enter on a text or code file opens it in Zed (default: $EDITOR, which falls back to vi)
 [opener]
 edit = [{ run = "zed %s", desc = "Zed", for = "unix" }]
+
+# git plugin: each file's git status in the list
+[[plugin.prepend_fetchers]]
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url   = "*/"
+run   = "git"
+group = "git"
+
+# piper plugin: Markdown previews formatted by glow
+[[plugin.prepend_previewers]]
+url = "*.md"
+run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'

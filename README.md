@@ -9,7 +9,19 @@ I'd been putting this off for years. This is finally the dotfiles repo I keep us
 </tr>
 <tr>
 <td><img src="docs/screenshots/lazygit.png" alt="lazygit showing the latest commit"><br><sub>lazygit</sub></td>
-<td><img src="docs/screenshots/yazi.png" alt="yazi browsing the scripts folder"><br><sub>yazi</sub></td>
+<td><img src="docs/screenshots/yazi.png" alt="yazi with rounded borders and a Markdown preview of docs/macos.md"><br><sub>yazi, with a Markdown preview through glow</sub></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/gdu.png" alt="gdu listing the repo's folders by size"><br><sub><code>gdu</code>: disk usage you can browse</sub></td>
+<td><img src="docs/screenshots/dust.png" alt="dust showing the repo's folders as a tree with bars"><br><sub><code>dust</code>: what's big in a folder</sub></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/duf.png" alt="duf's table of drives with size, used and free space"><br><sub><code>duf</code>: how full each drive is</sub></td>
+<td><img src="docs/screenshots/btop.png" alt="btop showing CPU, memory, disks, network and processes"><br><sub>btop</sub></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/glow.png" alt="glow rendering this README in the terminal"><br><sub><code>glow README.md</code></sub></td>
+<td><img src="docs/screenshots/atuin.png" alt="atuin's Ctrl+R history search"><br><sub>atuin (Ctrl+R)</sub></td>
 </tr>
 </table>
 

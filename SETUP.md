@@ -31,7 +31,7 @@ All the scripts are safe to re-run: anything already installed or linked is skip
 | Group | Packages |
 |-------|----------|
 | Shell | `zsh`, `spaceship` (prompt), `zsh-autosuggestions`, `zsh-syntax-highlighting`, `fzf-tab`, `atuin` (history), `zsh-you-should-use`, `direnv` |
-| CLI tools | `bat`, `btop`, `eza`, `fd`, `fzf`, `jq`, `ripgrep`, `tree`, `wget`, `gum`, `lazygit`, `yazi`, `git-delta`, `tlrc` (`tldr`), `poppler`, `sevenzip` (`7zz`), `dust`, `duf`, `glow` |
+| CLI tools | `bat`, `btop`, `eza`, `fd`, `fzf`, `jq`, `ripgrep`, `tree`, `wget`, `gum`, `lazygit`, `yazi`, `git-delta`, `tlrc` (`tldr`), `poppler`, `sevenzip` (`7zz`), `dust`, `duf`, `gdu`, `glow`, `zoxide`, `lazydocker` |
 | git | `git`, `gh` |
 | Languages | `node`, `fnm`, `deno`, `python@3.14`, `pyenv`, `openjdk@21`, `gcc`, plus `corepack` from npm |
 | Containers | `docker`, `docker-compose` |

@@ -32,6 +32,8 @@ brew "fzf"
 brew "fzf-tab"
 # GNU compiler collection
 brew "gcc"
+# Disk usage you can browse and clean up (installed as gdu-go, `gdu` alias in .zshrc)
+brew "gdu"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -48,6 +50,8 @@ brew "herdr"
 brew "jq"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Terminal UI for Docker: containers, logs, stats, restart (`lzd`)
+brew "lazydocker"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Development kit for the Java programming language
@@ -74,6 +78,8 @@ brew "wget"
 brew "yazi"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# Jumps to folders you've visited by part of the name (`z`), and powers yazi's Z key
+brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh

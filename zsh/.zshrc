@@ -63,6 +63,9 @@ test -e "$HOME/.fzf-git.sh" && source "$HOME/.fzf-git.sh"
 # After Oh My Zsh and fzf, which both bind Ctrl+R. Up arrow stays zsh's own
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# --- zoxide: `z part-of-name` jumps to a folder you've been to, `zi` picks from a list (fzf). yazi's Z uses it too ---
+eval "$(zoxide init zsh)"
+
 # --- fzf-tab: Tab completion as a searchable fzf list ---
 # Needs compinit (run by Oh My Zsh) first, and must load before autosuggestions and syntax highlighting
 source "$HOMEBREW_PREFIX/share/fzf-tab/fzf-tab.zsh"
@@ -104,6 +107,8 @@ alias reload="exec zsh"  # fresh shell: removed aliases and functions go too, PA
 
 # --- Tools ---
 alias lg="rex do lazygit"
+alias lzd="lazydocker"
+(( $+commands[gdu-go] )) && alias gdu="gdu-go"  # Homebrew names it gdu-go (gdu clashes with coreutils)
 alias ulid="deno run https://docs.deno.com/examples/scripts/ulid.ts"
 
 # --- JavaScript projects ---

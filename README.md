@@ -51,10 +51,13 @@ What `zsh/.zshrc` and `git/.gitconfig` set up:
 | Esc Esc | put `sudo` in front of the current command, or the last one if the line is empty |
 | `y` | yazi file manager. `q` quits into the folder you were in, `z` fuzzy-jumps, Enter opens text files in Zed |
 | `lg` | lazygit |
+| `lzd` | lazydocker: containers, their logs and stats, restart or open a shell in one |
+| `z <part of a name>` / `zi` | jump to a folder you've been to before (zoxide) / pick one from a list. In yazi, `Z` |
 | `mkcd <dir>` | make a folder and `cd` into it |
 | `copypath`, `copyfile <file>` | copy the current folder's path, or a file's contents, to the clipboard |
 | `extract <file>` (or `x`) | unpack any archive: zip, tar.gz, 7z, rar and more |
 | `dust`, `duf`, `glow <file>` | disk usage by folder, free space per drive, Markdown rendered in the terminal |
+| `gdu` | disk usage you can browse: sorted by size, `d` deletes, `q` quits |
 | `reload` | start a fresh shell after editing `.zshrc` |
 | `.envrc` in a folder | loaded when you `cd` in and unloaded when you leave (direnv). Run `direnv allow` once per folder |
 | `~projects`, `~dotfiles`, `~worktrees` | named directories: `~dotfiles` on its own goes there, and they work in any path |

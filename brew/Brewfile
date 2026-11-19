@@ -58,6 +58,8 @@ brew "poppler"
 brew "pyenv"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# 7-Zip (`7zz`): unpacks any archive. yazi uses it to preview what's inside zips and 7z files
+brew "sevenzip"
 # Short, practical command examples (the `tldr` command)
 brew "tlrc"
 # Display directories as trees (with optional color/HTML output)

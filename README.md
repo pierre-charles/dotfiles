@@ -73,13 +73,10 @@ What `zsh/.zshrc` and `git/.gitconfig` set up:
 | Esc Esc | put `sudo` in front of the current command, or the last one if the line is empty |
 | `y` | yazi file manager. `q` quits into the folder you were in, `z` fuzzy-jumps, Enter opens text files in Zed |
 | `lg` | lazygit |
-| `lzd` | lazydocker: containers, their logs and stats, restart or open a shell in one |
-| `z <part of a name>` / `zi` | jump to a folder you've been to before (zoxide) / pick one from a list. In yazi, `Z` |
+| `lzd` | lazydocker |
 | `mkcd <dir>` | make a folder and `cd` into it |
 | `copypath`, `copyfile <file>` | copy the current folder's path, or a file's contents, to the clipboard |
 | `extract <file>` (or `x`) | unpack any archive: zip, tar.gz, 7z, rar and more |
-| `dust`, `duf`, `glow <file>` | disk usage by folder, free space per drive, Markdown rendered in the terminal |
-| `gdu` | disk usage you can browse: sorted by size, `d` deletes, `q` quits |
 | `reload` | start a fresh shell after editing `.zshrc` |
 | `.envrc` in a folder | loaded when you `cd` in and unloaded when you leave (direnv). Run `direnv allow` once per folder |
 | `~projects`, `~dotfiles`, `~worktrees` | named directories: `~dotfiles` on its own goes there, and they work in any path |
@@ -91,7 +88,6 @@ What `zsh/.zshrc` and `git/.gitconfig` set up:
 | `worktree-clean` | remove worktrees whose branch is merged (checks GitHub PRs for squash merges), after asking |
 | `dev [port]` | Next.js dev server on the first free port from 3000 |
 | `serve [port]` | static file server for the current folder (Deno), port 8000 |
-| `tldr <command>` | short examples, e.g. `tldr tar` |
 
 ### yazi keys
 
@@ -122,6 +118,7 @@ Plugins (in `yazi/package.toml`): what-size, chmod, smart-enter, toggle-pane, pl
 
 - [Catppuccin](https://github.com/catppuccin) for the themes (iTerm2, btop, yazi, fzf colours)
 - [Oh My Zsh](https://ohmyz.sh), [Spaceship](https://spaceship-prompt.sh), [fzf-tab](https://github.com/Aloxaf/fzf-tab)
+- [yazi-rs/plugins](https://github.com/yazi-rs/plugins) (chmod, git, piper, smart-enter, toggle-pane, full-border) and [what-size](https://github.com/pirafrank/what-size.yazi) for the yazi plugins
 
 ## License
 

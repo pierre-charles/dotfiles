@@ -35,6 +35,28 @@ The Linux scripts run the shared `setup.sh` first, so the shell is the same ever
 - **Linked, not copied.** `~/.zshrc`, `~/.gitconfig` and the app configs are links into the repo, so a tweak on one machine is a commit away from all of them.
 - **Nothing personal in the repo.** Your git identity and machine-specific shell config live in `~/.gitconfig.local` and `~/.zshrc.local`.
 
+## Which tool for what
+
+The Brewfile installs a lot. These are the ones worth remembering, by what you're trying to do:
+
+| I want to… | Use | Try |
+|---|---|---|
+| see which drive is full | `duf` | `duf` |
+| see what's big in a folder | `dust` | `dust`, `dust -d 1 ~` (one level) |
+| dig into disk usage and clean up | `gdu` | `gdu ~`: Enter goes in, `h` goes up, `d` deletes (asks first). `E` saves the scan, `gdu -f <file>` opens it later without rescanning |
+| browse, preview, move and rename files | yazi | `y`, keys below. `b` in yazi is a folder's total size |
+| jump to a folder I've been to | zoxide | `z part-of-name`, `zi` to pick from a list, `Z` in yazi |
+| jump to a fixed place | named directories | `~dotfiles`, `zed ~projects` |
+| find a file by name / text in files | `fd` / `rg` | `fd invoice`, `rg "TODO"` |
+| pick a file or folder fuzzily | fzf | Ctrl+T, Alt+C, Tab |
+| read a file / a Markdown file | `bat` (`cat`) / `glow` | `cat .zshrc`, `glow README.md` |
+| stage, commit and branch | lazygit | `lg` |
+| read a diff | delta | `git diff`, `git show` |
+| check on Docker containers | lazydocker | `lzd`: logs, stats with `]`, restart with `r`, a shell with `E` |
+| see what's using CPU and memory | btop | `btop` |
+| find a command I ran before | atuin | Ctrl+R |
+| remember how a command works | tldr | `tldr tar` |
+
 ## Shell shortcuts
 
 What `zsh/.zshrc` and `git/.gitconfig` set up:

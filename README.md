@@ -85,6 +85,7 @@ Start it with `y`, press `~` inside for the full list.
 | `;` | run a shell command on the selected files |
 | `t` | new tab |
 | `.` | show or hide hidden files |
+| `b` | size of the selection, or of the folder you're in, contents included (what-size plugin, slow on huge folders) |
 | `q` | quit into the folder you were in |
 
 ## Credits

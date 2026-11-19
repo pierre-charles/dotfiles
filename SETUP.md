@@ -50,7 +50,7 @@ All the scripts are safe to re-run: anything already installed or linked is skip
 | `git/.gitconfig` | `~/.gitconfig` | link |
 | `zed/settings.json`, `zed/keymap.json` | `~/.config/zed/` | link |
 | `herdr/config.toml` | `~/.config/herdr/config.toml` | link |
-| `yazi/` | `~/.config/yazi` | link (themes listed in `package.toml`, downloaded by `setup.sh`) |
+| `yazi/` | `~/.config/yazi` | link (theme and plugins listed in `package.toml`, downloaded by `setup.sh`) |
 | `btop/` | `~/.config/btop` | link (Catppuccin theme in `themes/`) |
 | `rex/init.lua` | `~/.config/rex/init.lua` | link |
 | `rex/settings.sh`, `rex/themes.json` | Rex's preferences (macOS) | written by `setup.sh` with `defaults`. Changed a setting in Rex? Update `settings.sh` |

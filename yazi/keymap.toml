@@ -1,0 +1,5 @@
+# Extra keys on top of yazi's defaults (prepend_keymap keeps all the built-in ones)
+[[mgr.prepend_keymap]]
+on   = "b"
+run  = "plugin what-size"
+desc = "Size of the selection, or of this folder (what-size plugin)"

@@ -19,3 +19,6 @@ rex.action{
   end,
 }
 rex.bind("cmd+g", "lazygit")
+
+-- Start Rex Island (~/Projects/rex-island) with Rex; does nothing if it's already running or not installed
+rex.exec({ "open", "-g", "-a", "Rex Island" })

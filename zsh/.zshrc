@@ -131,12 +131,25 @@ function y() {
 }
 
 # --- Git ---
-# Deletes local branches whose remote branch is gone (deleted after the PR merged). -D, because
-# squash-merged branches never look merged to git. Branches checked out in a worktree are refused
+# Deletes local branches whose remote branch is gone (deleted after the PR merged), but only when nothing
+# would be lost: everything on it is in origin/main, or its GitHub PR merged with this exact head (catches
+# squash merges), as worktree-clean checks. A branch with commits that never merged is kept and listed.
+# -D, because squash-merged branches never look merged to git. Branches checked out in a worktree are refused
 function git-remove-gone-branches() {
   git fetch --prune
+  local base=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null || echo origin/main)
+  local branch head
   git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads \
-    | awk '$2 == "[gone]" {print $1}' | xargs -r git branch -D
+    | awk '$2 == "[gone]" {print $1}' \
+    | while read -r branch; do
+        head=$(git rev-parse "refs/heads/$branch")
+        if git merge-base --is-ancestor "$head" "$base" \
+          || [[ $(gh pr list --head "$branch" --state merged --json headRefOid --jq '.[0].headRefOid // ""' 2>/dev/null) == $head ]]; then
+          git branch -D "$branch"
+        else
+          echo "Kept $branch: it has commits that never merged"
+        fi
+      done
 }
 
 # --- Worktrees (all live in ~worktrees/<repo>/<name>) ---

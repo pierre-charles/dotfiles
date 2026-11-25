@@ -34,7 +34,7 @@ Every machine gets the same core: Homebrew, zsh with the Spaceship prompt, the C
 | Machine | Why | What its script adds |
 |---------|-----|----------------------|
 | **macOS** | Where I spend most of my day | The apps as Homebrew casks, iTerm2 shell integration |
-| **Ubuntu** | I was sick of setting it up from scratch and customising it all over again every time | apt packages, Obsidian, Brave, Zed, 1Password and 12 GNOME extensions |
+| **Ubuntu** | I was sick of setting it up from scratch and customising it all over again every time | apt packages, Obsidian, Brave, Zed, 1Password, Rex, the herdr app, 11 GNOME extensions and my GNOME settings |
 | **Bazzite** | My gaming PC, which I keep tinkering with to make it a fullscreen gaming rig | Flatpak apps, Steam starting in Big Picture Mode, KDE set up for a PC that never locks or sleeps |
 
 The Linux scripts run the shared `setup.sh` first, so the shell is the same everywhere and only the desktop differs.

@@ -1,0 +1,60 @@
+# GNOME settings for Ubuntu, loaded by scripts/setup-ubuntu.sh with `dconf load / < gnome/settings.dconf`.
+# Only the keys I've changed: anything not listed keeps GNOME's default. See docs/ubuntu.md#gnome-settings
+
+[org/gnome/desktop/interface]
+accent-color='purple'
+color-scheme='prefer-dark'
+gtk-theme='Yaru-purple-dark'
+icon-theme='Yaru-purple-dark'
+font-name='Geist 12'
+document-font-name='Geist 12'
+monospace-font-name='MesloLGMDZ Nerd Font Mono 12'
+font-hinting='none'
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'gb')]
+
+# Resolute Raccoon wallpaper, from Ubuntu 26.04's ubuntu-wallpapers-resolute
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/osselo-Ask_a_friend.jpg'
+picture-uri-dark='file:///usr/share/backgrounds/osselo-Ask_a_friend.jpg'
+picture-options='zoom'
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/backgrounds/osselo-Ask_a_friend.jpg'
+picture-options='zoom'
+
+[org/gnome/desktop/privacy]
+report-technical-problems=false
+
+[org/gnome/system/location]
+enabled=false
+
+[org/gnome/shell]
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'brave-browser.desktop', 'obsidian_obsidian.desktop', 'herdr-app.desktop']
+
+[org/gnome/shell/extensions/dash-to-dock]
+dock-position='BOTTOM'
+dash-max-icon-size=48
+dock-fixed=false
+intellihide=false
+extend-height=false
+multi-monitor=true
+apply-custom-theme=false
+custom-theme-shrink=true
+transparency-mode='DYNAMIC'
+background-opacity=0.80000000000000004
+
+# Ubuntu's desktop icons: no home folder icon
+[org/gnome/shell/extensions/ding]
+show-home=false
+
+# Ptyxis, the terminal: one profile with Catppuccin colours. The UUID is just a name, any machine can use it
+[org/gnome/Ptyxis]
+default-profile-uuid='247ccd3b1b154d1a2fa9bef46ae1d7b9'
+profile-uuids=['247ccd3b1b154d1a2fa9bef46ae1d7b9']
+restore-session=false
+
+[org/gnome/Ptyxis/Profiles/247ccd3b1b154d1a2fa9bef46ae1d7b9]
+palette='Catppuccin Macchiato'
+login-shell=true

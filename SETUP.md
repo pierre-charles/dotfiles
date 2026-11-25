@@ -36,7 +36,7 @@ All the scripts are safe to re-run: anything already installed or linked is skip
 | Languages | `node`, `fnm`, `deno`, `python@3.14`, `pyenv`, `openjdk@21`, `gcc`, plus `corepack` from npm |
 | Containers | `docker`, `docker-compose` |
 | Media | `ffmpeg`, `yt-dlp` |
-| Other | `herdr` |
+| Other | `herdr`, Claude Code |
 | Fonts | Geist, MesloLG Nerd Font |
 | Apps (macOS only) | 1Password, Brave, iTerm2, Obsidian, Zed. The Linux scripts install these their own way |
 
@@ -58,6 +58,7 @@ All the scripts are safe to re-run: anything already installed or linked is skip
 | `eza/theme.yml` | — | read through `EZA_CONFIG_DIR` in `.zshrc` |
 | `atuin/` | — | read through `ATUIN_CONFIG_DIR` in `.zshrc` (Catppuccin theme in `themes/`) |
 | `iterm2/*.itermcolors` | — | Catppuccin colour presets to import into iTerm2 (macOS) |
+| `gnome/settings.dconf` | GNOME's settings (Ubuntu) | loaded by `setup-ubuntu.sh` with `dconf load`. See [docs/ubuntu.md](docs/ubuntu.md#gnome-settings) |
 
 Linked files are the repo copy, so editing them on the machine edits the repo.
 

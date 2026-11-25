@@ -1,6 +1,6 @@
 # Ubuntu setup
 
-For Ubuntu with GNOME. `setup-ubuntu.sh` installs system packages with apt, runs the shared `setup.sh` (Homebrew, Oh My Zsh, config links), then installs the apps and GNOME extensions.
+For Ubuntu with GNOME. `setup-ubuntu.sh` installs system packages with apt, runs the shared `setup.sh` (Homebrew, Oh My Zsh, config links), then installs the apps and GNOME extensions and loads the GNOME settings.
 
 ## What gets installed
 
@@ -8,13 +8,18 @@ For Ubuntu with GNOME. `setup-ubuntu.sh` installs system packages with apt, runs
 |------|------|---------|
 | `build-essential`, `procps`, `curl`, `wget`, `file`, `git`, `zsh`, `openssh-server` | apt | build tools Homebrew needs, zsh as the login shell, and SSH into this machine (starts by itself) |
 | GNOME Tweaks, Extension Manager | apt | see [GNOME](#gnome) |
+| Resources | apt | system monitor: CPU, memory, disks, network and apps |
 | CLI tools, languages, shell plugins | Homebrew | `brew/Brewfile`, listed in [SETUP.md](../SETUP.md#what-gets-installed). The macOS-only apps are skipped |
 | Oh My Zsh, config links, fzf-git.sh | `setup.sh` | same as macOS, see [macos.md](macos.md#what-gets-installed) |
 | Obsidian | Snap | |
 | Brave | Brave's install script (adds its apt repo) | |
 | Zed | Zed's install script | in `~/.local/zed.app`, updates itself |
 | 1Password | 1Password's apt repo | amd64 only |
-| 12 GNOME extensions | extensions.gnome.org | listed in [Extensions](#extensions) |
+| Rex | Rex's install script (adds its apt repo) | `rex server install` then starts the server at boot, so other machines can reach it with `rex -S` |
+| herdr app | herdr's install script | in `~/.local`. The `herdr` CLI comes from the Brewfile |
+| Default browser | `xdg-settings` | Brave |
+| 11 GNOME extensions | extensions.gnome.org | listed in [Extensions](#extensions) |
+| GNOME settings | `gnome/settings.dconf` | theme, fonts, keyboard, wallpaper, dock, terminal colours, see [GNOME settings](#gnome-settings) |
 
 Don't want some of the apps or extensions? Delete them from `scripts/setup-ubuntu.sh` before running it.
 
@@ -38,11 +43,12 @@ It asks for your password once at the start, then shows each step as a checkbox:
 | Step | What happens | You need to |
 |------|--------------|-------------|
 | sudo | asks for your password once and keeps it for the whole run | enter your password |
-| apt packages | build tools, `curl`, `wget`, `git`, `zsh`, `openssh-server`, GNOME Tweaks, Extension Manager | — |
+| apt packages | build tools, `curl`, `wget`, `git`, `zsh`, `openssh-server`, GNOME Tweaks, Extension Manager, Resources | — |
 | Shell | switches your login shell to zsh (skipped if it already is) | — |
 | `setup.sh` steps | Homebrew + Brewfile, Oh My Zsh, config links | wait, Homebrew takes a while (`tail -f` the log to watch) |
-| Apps | Obsidian (Snap), Brave and Zed (their install scripts), 1Password (its own apt repo) | — |
-| GNOME extensions | a GNOME dialog pops up for each one not yet installed | click **Install** each time (within 5 minutes) |
+| Apps | Obsidian (Snap), Brave, Zed, Rex and the herdr app (their install scripts), 1Password (its own apt repo), Brave as the default browser | — |
+| GNOME extensions | a GNOME dialog pops up for each one not yet installed, then Ubuntu Dock and Tiling Assistant are turned off | click **Install** each time (within 5 minutes) |
+| GNOME settings | loads `gnome/settings.dconf` | — |
 
 When it's done, **log out and back in** so zsh becomes your shell.
 
@@ -66,7 +72,9 @@ gnome-extensions list --enabled                 # the extensions from the table 
 ```
 
 - [ ] The prompt is Spaceship, and typing shows grey suggestions and coloured commands
-- [ ] Obsidian, Brave, Zed and 1Password open from Activities
+- [ ] Obsidian, Brave, Zed, 1Password, Resources and Herdr open from Activities
+- [ ] Dark purple theme, Geist font, the Resolute Raccoon wallpaper, and the dock at the bottom
+- [ ] `rex server status` shows a running server
 
 ## GNOME
 
@@ -77,7 +85,7 @@ Apps (search for them in Activities, the Super key):
 
 ### Extensions
 
-The script installs and turns on all of these except Sound Output Device Chooser:
+The script installs all of these except Sound Output Device Chooser. New ones are turned on. Ones that are already installed are left on or off as they are, so turning one off in Extension Manager sticks:
 
 | Extension | What for |
 |-----------|----------|
@@ -87,7 +95,6 @@ The script installs and turns on all of these except Sound Output Device Chooser
 | [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/) | Menu of common folders and drives |
 | [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/) | Turn the dash into a dock |
 | [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) | Blur the overview, top bar and dash |
-| [Vitals](https://extensions.gnome.org/extension/1460/vitals/) | CPU, memory, temperature and network in the top bar |
 | [Caffeine](https://extensions.gnome.org/extension/517/caffeine/) | Stop the screen locking or the machine sleeping |
 | [Clipboard Indicator](https://extensions.gnome.org/extension/779/clipboard-indicator/) | Clipboard history |
 | [Removable Drive Menu](https://extensions.gnome.org/extension/7/removable-drive-menu/) | Mount and eject USB drives from the top bar |
@@ -95,23 +102,28 @@ The script installs and turns on all of these except Sound Output Device Chooser
 | [Status Area Horizontal Spacing](https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/) | Less spacing between top bar icons |
 | [Sound Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/) | Not installed: only supports GNOME 43 and older, newer GNOME has it built in |
 
-Ubuntu's own extensions can clash with these:
-
-```sh
-gnome-extensions disable ubuntu-dock@ubuntu.com           # if you see two docks
-gnome-extensions disable tiling-assistant@ubuntu.com      # if window snapping fights gTile
-```
+Two of Ubuntu's own extensions clash with these, so the script turns them off: **Ubuntu Dock** (a second dock next to Dash to Dock) and **Tiling Assistant** (window snapping that fights gTile). Turn either back on in Extension Manager if you want it, but the next run turns it off again.
 
 Adding or removing an extension for future machines: edit the `EXTENSIONS` list in `scripts/setup-ubuntu.sh` (each entry is `Name|UUID`; the UUID is shown on the extension's page and in `gnome-extensions list`) and the table above. The script never uninstalls anything; remove one from this machine with `gnome-extensions uninstall <uuid>`.
 
-### Back up extension settings
+### GNOME settings
 
-Not automated yet. To carry extension settings to another machine:
+`gnome/settings.dconf` holds only the settings I've changed. Anything not in it keeps GNOME's default. The script loads it with `dconf load / < gnome/settings.dconf`, which overwrites those keys on every run, so the file wins over changes made in Settings.
 
-```sh
-dconf dump /org/gnome/shell/extensions/ > gnome-extensions.dconf   # on the old machine
-dconf load /org/gnome/shell/extensions/ < gnome-extensions.dconf   # on the new one
-```
+| What | Setting |
+|---|---|
+| Look | dark mode, purple accent, `Yaru-purple-dark` theme and icons |
+| Fonts | Geist 12, MesloLGMDZ Nerd Font Mono 12 for monospace, hinting off |
+| Keyboard | UK |
+| Wallpaper | the Resolute Raccoon one (`osselo-Ask_a_friend.jpg`), desktop and lock screen |
+| Privacy | location and problem reports off |
+| Dock | pinned apps (Files, Ptyxis, Extension Manager, Brave, Obsidian, Herdr), Dash to Dock at the bottom, 48px icons, 80% opacity |
+| Desktop icons | no home folder icon |
+| Ptyxis (terminal) | Catppuccin Macchiato, login shell, doesn't reopen old tabs |
+
+The wallpaper comes with Ubuntu 26.04. On another version the file may not exist, and the background is left plain.
+
+**Changing a setting for future machines:** change it in Settings, Tweaks or the app, and find its key with `dconf watch /` (run it first, then make the change). Copy the key into the right `[section]` of `gnome/settings.dconf`. `dconf dump / | less` lists every setting that isn't a default, if you'd rather browse.
 
 ## Troubleshooting
 

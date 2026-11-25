@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Ubuntu setup: apt packages, apps and GNOME extensions, plus the shared setup.sh.
+# Ubuntu setup: apt packages, apps, GNOME extensions and settings, plus the shared setup.sh.
 # Run from a terminal inside your GNOME session (extensions install through GNOME Shell).
 # No `set -e`: a failed step is shown with a red [✗], the rest still runs, and the summary lists failures.
 
@@ -12,7 +12,7 @@ need_sudo
 
 # --- apt ---
 section "apt packages"
-APT_PACKAGES=(build-essential procps curl wget file git zsh openssh-server gnome-tweaks gnome-shell-extension-manager)
+APT_PACKAGES=(build-essential procps curl wget file git zsh openssh-server gnome-tweaks gnome-shell-extension-manager resources)
 missing=()
 for pkg in "${APT_PACKAGES[@]}"; do
     if apt_installed "$pkg"; then skip "$pkg (already installed)"; else missing+=("$pkg"); fi
@@ -73,6 +73,31 @@ else
         && run "Installing 1Password" sudo apt-get install -y 1password
 fi
 
+# Rex's script adds its apt repo, then installs it. `rex server install` starts the server at boot (rex.socket)
+if command -v rex &> /dev/null; then
+    skip "Rex (already installed)"
+else
+    run "Installing Rex" bash -c 'set -o pipefail; curl -fsSL https://pkgs.superlogical.com/rex/install.sh | sh'
+fi
+if systemctl --user is-enabled rex.socket &> /dev/null; then
+    skip "Rex server starts at boot (already set up)"
+elif command -v rex &> /dev/null; then
+    run "Starting the Rex server at boot" rex server install
+fi
+
+# herdr's desktop app (the herdr CLI comes from the Brewfile): installs to ~/.local
+if [ -x "$HOME/.local/bin/herdr-app" ]; then
+    skip "herdr app (already installed)"
+else
+    run "Installing the herdr app" bash -c 'set -o pipefail; curl -fsSL https://releases.herdr.dev/app/install.sh | sh'
+fi
+
+if [ "$(xdg-settings get default-web-browser 2>/dev/null)" = brave-browser.desktop ]; then
+    skip "Brave is the default browser"
+elif command -v brave-browser &> /dev/null; then
+    run "Making Brave the default browser" xdg-settings set default-web-browser brave-browser.desktop
+fi
+
 # --- GNOME extensions ---
 section "GNOME extensions"
 echo "  New ones open a GNOME dialog: click Install (you have 5 minutes each)."
@@ -85,13 +110,15 @@ EXTENSIONS=(
     "Places Status Indicator|places-menu@gnome-shell-extensions.gcampax.github.com"
     "Dash to Dock|dash-to-dock@micxgx.gmail.com"
     "Blur my Shell|blur-my-shell@aunetx"
-    "Vitals|Vitals@CoreCoding.com"
     "Caffeine|caffeine@patapon.info"
     "Clipboard Indicator|clipboard-indicator@tudmotu.com"
     "Removable Drive Menu|drive-menu@gnome-shell-extensions.gcampax.github.com"
     "gTile|gTile@vibou"
     "Status Area Horizontal Spacing|status-area-horizontal-spacing@mathematical.coffee.gmail.com"
 )
+
+# Ubuntu's own ones that clash: a second dock next to Dash to Dock, and window snapping that fights gTile
+UBUNTU_EXTENSIONS_OFF=(ubuntu-dock@ubuntu.com tiling-assistant@ubuntu.com)
 
 install_extensions() {
     local installed entry name uuid result
@@ -101,12 +128,9 @@ install_extensions() {
     fi
     for entry in "${EXTENSIONS[@]}"; do
         name="${entry%%|*}" uuid="${entry#*|}"
+        # Already installed: left on or off as it is, so turning one off sticks
         if grep -qx "$uuid" <<< "$installed"; then
-            if gnome-extensions enable "$uuid" 2>> "$LOG"; then
-                skip "$name (already installed, enabled)"
-            else
-                fail "$name" "installed but couldn't be enabled"
-            fi
+            skip "$name (already installed)"
             continue
         fi
         pending "$name (waiting for you to click Install)"
@@ -120,7 +144,18 @@ install_extensions() {
             fail "$name" "$result"
         fi
     done
+    for uuid in "${UBUNTU_EXTENSIONS_OFF[@]}"; do
+        if ! grep -qx "$uuid" <<< "$(gnome-extensions list --enabled)"; then
+            skip "$uuid (off)"
+        else
+            run "Turning off $uuid" gnome-extensions disable "$uuid"
+        fi
+    done
 }
 install_extensions
+
+# --- GNOME settings: theme, fonts, keyboard, wallpaper, dock, terminal colours ---
+section "GNOME settings"
+run "Loading gnome/settings.dconf" bash -c 'dconf load / < "$1"' _ "$DOTFILES/gnome/settings.dconf"
 
 summary "log out and back in, then follow 'After setup' in docs/ubuntu.md"

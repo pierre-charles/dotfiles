@@ -89,6 +89,7 @@ brew "zsh-you-should-use"
 npm "corepack"
 cask "1password" if OS.mac?  # Linux: apt repo, see scripts/setup-ubuntu.sh
 cask "brave-browser" if OS.mac?  # Linux: dl.brave.com install script, see scripts/setup-ubuntu.sh
+cask "claude-code"
 cask "font-geist"
 cask "font-meslo-lg-nerd-font"
 cask "iterm2" if OS.mac?

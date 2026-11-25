@@ -25,7 +25,16 @@ run() {
     local label="$1"; shift
     local start; start=$(wc -l < "$LOG")
     pending "$label..."
-    if "$@" >> "$LOG" 2>&1; then
+    "$@" >> "$LOG" 2>&1 <&0 &  # <&0: background jobs get /dev/null as stdin otherwise
+    local pid=$! secs=0 last width
+    # In a terminal, redraw the line every second with the time taken and the latest log line, so long steps don't look stuck
+    while [ -t 1 ] && kill -0 "$pid" 2>/dev/null; do
+        sleep 1; secs=$((secs + 1))
+        last="$(tail -n 1 "$LOG" | sed 's/.*\r//')"  # progress bars redraw with \r: keep the latest
+        width=$(( $(tput cols) - ${#label} - 16 )); [ "$width" -lt 0 ] && width=0  # one line, or \r can't redraw it
+        clear_line; pending "$label... ${secs}s ${dim}${last:0:$width}${reset}"
+    done
+    if wait "$pid"; then
         clear_line; ok "$label"
     else
         clear_line

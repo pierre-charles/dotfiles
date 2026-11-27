@@ -42,7 +42,7 @@ It shows each step as a checkbox: `[✓]` done, `[–]` already done, `[✗]` fa
 | sudo | asks for your password once and keeps it for the whole run | enter your password |
 | Homebrew | installs Homebrew, then everything in `brew/Brewfile` | wait, it takes a while (`tail -f` the log to watch) |
 | Oh My Zsh | installs it (skipped if it's already there) | — |
-| Config links | links `.zshrc`, `.gitconfig`, Zed, herdr, yazi, btop and Rex's `init.lua`, downloads the yazi theme and writes Rex's settings and theme. A real file in the way, like the `.zshrc` Oh My Zsh creates, is kept as `<name>.backup-<date>` | — |
+| Config links | links `.zshrc`, `.gitconfig`, Zed, herdr, yazi, btop and Rex's `init.lua`, downloads the yazi theme and writes Rex's settings and theme. A real file or folder in the way, like the `.zshrc` Oh My Zsh creates, is kept as `<name>.backup-<date>` | — |
 | fzf-git.sh | downloads it if it isn't there | — |
 | iTerm2 shell integration | downloads it if it isn't there | — |
 

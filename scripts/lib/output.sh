@@ -93,7 +93,7 @@ need_sudo() {
     ok "sudo ready"
 }
 
-# Links src to dst. Skips it if it's already linked, keeps a real file in the way as <name>.backup-<date>
+# Links src to dst. Skips it if it's already linked, keeps a real file or folder in the way as <name>.backup-<date>
 symlink() {
     local src="$1" dst="$2" out
     local name="${dst/#$HOME/$tilde}"
@@ -102,14 +102,12 @@ symlink() {
         skip "$name (${src/#$HOME/$tilde} isn't in the repo)"
     elif [ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ]; then
         skip "$name (already linked)"
-    elif [ -d "$dst" ] && [ ! -L "$dst" ]; then
-        # ln would put the link inside the folder instead of replacing it
-        fail "$name" "already exists as a folder. Move it out of the way and re-run"
-    elif [ -f "$dst" ] && [ ! -L "$dst" ]; then
-        # A real file is in the way (e.g. the .zshrc Oh My Zsh creates): keep it, don't overwrite it
+    elif [ -e "$dst" ] && [ ! -L "$dst" ]; then
+        # Something real is in the way (the .zshrc Oh My Zsh creates, the .obsidian folder Obsidian makes): keep it,
+        # don't overwrite it. A folder has to move anyway, or ln would put the link inside it
         local backup; backup="$dst.backup-$(date +%Y%m%d-%H%M%S)"
         if out="$(mv "$dst" "$backup" 2>&1 && ln -s "$src" "$dst" 2>&1)"; then
-            ok "Linked $name (the file that was there is now ${backup/#$HOME/$tilde})"
+            ok "Linked $name (what was there is now ${backup/#$HOME/$tilde})"
         else
             fail "Linking $name" "$out"
         fi

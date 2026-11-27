@@ -14,7 +14,7 @@ bash ~/dotfiles/scripts/setup-bazzite.sh    # Bazzite (KDE)
 You can clone it anywhere: the scripts and `.zshrc` find the repo from their own location. Then add your git name and email (see [Your own settings](#your-own-settings)).
 
 > [!WARNING]
-> Setup **links** your `~/.zshrc`, `~/.gitconfig` and some `~/.config` folders to this repo. Files already there are kept as `<name>.backup-<date>`, but read what it does first.
+> Setup **links** your `~/.zshrc`, `~/.gitconfig` and some `~/.config` folders to this repo. Files and folders already there are kept as `<name>.backup-<date>`, but read what it does first.
 
 | Machine | Guide | Script |
 |---------|-------|--------|
